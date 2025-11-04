@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nootik — Your AI Focus Co-Pilot</title>
+  <meta name="description" content="Nootik is your AI co-pilot for attention. Stay focused in meetings with real-time distraction detection, gentle nudges, and instant recaps — all powered by local AI." />
+  <link rel="icon" href="brand/icon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0B0D0F; color: #E5E7EB; }
+    ::selection { background: #00C2B7; color: #0B0D0F; }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-black/30 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="#" class="flex items-center gap-2">
+        <img src="brand/icon.png" alt="Nootik logo" class="h-7 w-7" />
+        <span class="text-lg font-semibold text-white">Nootik</span>
+      </a>
+      <nav class="hidden items-center gap-8 md:flex">
+        <a href="#features" class="text-sm text-gray-400 hover:text-white transition">Features</a>
+        <a href="#how" class="text-sm text-gray-400 hover:text-white transition">How it works</a>
+        <a href="#privacy" class="text-sm text-gray-400 hover:text-white transition">Privacy</a>
+      </nav>
+      <a href="#beta" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
+        Join Beta
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-24 pb-32">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#0B0D0F] via-[#0E1318] to-[#111826]"></div>
+    <div class="absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#00C2B7]/10 blur-3xl"></div>
+    <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-[#00FFF0]/5 blur-3xl"></div>
+
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <h1 class="text-5xl font-bold leading-tight text-white md:text-6xl">
+        Your <span class="bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] bg-clip-text text-transparent">AI Focus Co-Pilot</span>
+      </h1>
+      <p class="mx-auto mt-5 max-w-2xl text-lg text-gray-400">
+        Stay present and engaged in meetings. Nootik detects distractions, sends subtle nudges, and generates instant recaps — directly from your Chrome browser.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="#beta" class="rounded-xl bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-6 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
+          Add to Chrome (Beta)
+        </a>
+        <a href="#how" class="rounded-xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+          How it works
+        </a>
+      </div>
+
+      <div class="mt-14 relative flex justify-center">
+        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#00C2B7]/30 to-[#0FFFC4]/30 blur-2xl"></div>
+        <img src="brand/assistant_hero.png" alt="Nootik Chrome Extension preview" class="relative z-10 w-full max-w-4xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(0,194,183,0.25)]" />
+      </div>
+      <p class="mt-4 text-xs text-gray-500">Currently works with Google Meet, Zoom (web) & Microsoft Teams.</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="border-t border-white/10 bg-[#0D1013] py-24">
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <h2 class="text-3xl font-semibold text-white md:text-4xl">Built for modern attention</h2>
+      <p class="mt-3 text-gray-400">Smart. Empathetic. Local. Nootik blends AI with human-centered design.</p>
+
+      <div class="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition hover:bg-white/10">
+          <img src="brand/detect.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
+          <h3 class="text-lg font-semibold text-white">Real-Time Detection</h3>
+          <p class="mt-2 text-sm text-gray-400">Understands attention patterns and detects when you drift away.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition hover:bg-white/10">
+          <img src="brand/nudge.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
+          <h3 class="text-lg font-semibold text-white">Gentle Nudges</h3>
+          <p class="mt-2 text-sm text-gray-400">Helps you stay calm and aware without interruptions or stress.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition hover:bg-white/10">
+          <img src="brand/recap.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
+          <h3 class="text-lg font-semibold text-white">Instant Recaps</h3>
+          <p class="mt-2 text-sm text-gray-400">Summarizes key moments so you never miss what matters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="border-t border-white/10 bg-[#0B0D0F] py-24">
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <h2 class="text-3xl font-semibold text-white md:text-4xl">How it works</h2>
+      <p class="mt-3 text-gray-400">Simple setup. Real results.</p>
+
+      <div class="mt-14 grid grid-cols-1 gap-10 text-left md:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <span class="text-[#00C2B7] text-sm font-semibold">01</span>
+          <h3 class="mt-2 text-lg font-semibold text-white">Install the extension</h3>
+          <p class="mt-2 text-sm text-gray-400">Add Nootik to Chrome and connect it with your meeting platforms.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <span class="text-[#00C2B7] text-sm font-semibold">02</span>
+          <h3 class="mt-2 text-lg font-semibold text-white">Stay focused</h3>
+          <p class="mt-2 text-sm text-gray-400">AI observes your attention and gives subtle cues when needed.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <span class="text-[#00C2B7] text-sm font-semibold">03</span>
+          <h3 class="mt-2 text-lg font-semibold text-white">Get recaps instantly</h3>
+          <p class="mt-2 text-sm text-gray-400">Receive concise summaries of key discussion points automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section id="privacy" class="border-t border-white/10 bg-[#0E1114] py-24">
+    <div class="mx-auto max-w-4xl px-6 text-center">
+      <h2 class="text-3xl font-semibold text-white md:text-4xl">Privacy built in</h2>
+      <p class="mt-3 text-gray-400">We never record or store without consent. Nootik is designed with transparency and control in mind.</p>
+      <ul class="mt-10 grid grid-cols-1 gap-4 text-left text-sm text-gray-400 md:grid-cols-2">
+        <li>• Local processing first, cloud only when necessary.</li>
+        <li>• You control what’s stored and when it’s deleted.</li>
+        <li>• No hidden tracking, ads, or third-party data sharing.</li>
+        <li>• Clear settings for pause, snooze, and delete.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Beta CTA -->
+  <section id="beta" class="border-t border-white/10 bg-[#0B0D0F] py-24 text-center">
+    <div class="mx-auto max-w-5xl px-6">
+      <h2 class="text-3xl font-semibold text-white md:text-4xl">Join the Beta</h2>
+      <p class="mt-3 text-gray-400">Be part of the next generation of focus technology.</p>
+      <form class="mt-8 flex flex-col items-center gap-3 md:flex-row md:justify-center" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" class="w-full max-w-md rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none focus:border-[#00C2B7]" required />
+        <button class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">Notify me</button>
+      </form>
+      <p class="mt-3 text-xs text-gray-500">We’ll only contact you with important updates — no spam.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-black/60 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
+      <div class="flex items-center gap-2">
+        <img src="brand/icon.png" alt="Nootik logo" class="h-6 w-6" />
+        <span class="text-sm font-semibold text-white">Nootik</span>
+      </div>
+      <p class="text-xs text-gray-500">© 2025 Nootik — Built with empathy and AI.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="#" class="text-gray-400 hover:text-white transition">Privacy</a>
+        <a href="#" class="text-gray-400 hover:text-white transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

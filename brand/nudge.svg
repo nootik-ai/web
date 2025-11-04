@@ -1,0 +1,11 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-nudge" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00C2B7"/>
+      <stop offset="1" stop-color="#0FFFC4"/>
+    </linearGradient>
+  </defs>
+  <path d="M12 30C16 26 18 20 24 20C30 20 32 26 36 30C39 33 40 36 40 38C40 41 38 43 35 43H13C10 43 8 41 8 38C8 35 9 33 12 30Z" stroke="url(#grad-nudge)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18 16L21 13M30 13L33 16" stroke="url(#grad-nudge)" stroke-width="2" stroke-linecap="round"/>
+</svg>
+
