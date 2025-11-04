@@ -194,7 +194,7 @@
           Send Feedback
         </button>
       </div>
-      
+
       <!-- Step 3 -->
       <div id="thank-you" class="hidden mt-10 max-w-md mx-auto text-center opacity-0 transition-opacity duration-500">
         <p class="text-[#00C2B7] font-medium text-lg">✅ Thanks for joining the Nootik Beta!</p>
@@ -203,17 +203,6 @@
       </div>
       <p class="mt-3 text-xs text-gray-500">We’ll only contact you with important updates — no spam.</p>
 
-      <script>
-        const form = document.getElementById('beta-form');
-        const extraForm = document.getElementById('extra-form');
-
-        form.addEventListener('submit', e => {
-          e.preventDefault();
-          form.classList.add('hidden');
-          extraForm.classList.remove('hidden');
-          setTimeout(() => extraForm.classList.add('opacity-100'), 50);
-        });
-      </script>
     </div>
   </section>
 
