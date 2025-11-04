@@ -56,10 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       try {
-        const res = await fetch(`${API_URL}/api/lead/`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+        const res = await fetch(`${API_URL}/api/lead/${encodeURIComponent(email)}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
         });
 
         if (!res.ok) throw new Error("Failed to update lead");
