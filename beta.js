@@ -4,11 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const betaForm = document.getElementById("beta-form");
   const extraForm = document.getElementById("extra-form");
   const thankYou = document.getElementById("thank-you");
-  let userEmail = ""; // guardar email globalmente
+
+  let userEmail = ""; // Guardamos el email globalmente
 
   if (!betaForm) return;
 
-  // Paso 1: Guardar email
+  // ✅ Paso 1: Guardar email en DB
   betaForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -21,54 +22,65 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      // 👇 usamos tu ruta original que funcionaba
       const res = await fetch(`${API_URL}/api/lead/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
 
-      if (!res.ok) throw new Error("Failed to save lead");
+      if (!res.ok) {
+        console.error("POST error:", await res.text());
+        throw new Error("Failed to save lead");
+      }
 
-      userEmail = email; // guardar email para el paso 2
+      console.log("✅ Lead saved successfully");
+      userEmail = email; // Guardamos el email globalmente
 
-      // Mostrar segundo paso
+      // Mostrar paso 2
       betaForm.classList.add("hidden");
       extraForm.classList.remove("hidden");
       setTimeout(() => extraForm.classList.add("opacity-100"), 50);
-
     } catch (err) {
       console.error("Error saving lead:", err);
       alert("Something went wrong. Please try again later.");
     }
   });
 
-  // Paso 2: Guardar más información opcional
+  // ✅ Paso 2: Guardar información adicional (PUT)
   const feedbackBtn = extraForm?.querySelector("button");
   if (feedbackBtn) {
     feedbackBtn.addEventListener("click", async () => {
+      if (!userEmail) {
+        alert("Something went wrong. Please start again.");
+        return;
+      }
+
       const inputs = extraForm.querySelectorAll("input, select, textarea");
-      const data = {};
+      const updateData = {};
 
       inputs.forEach((input) => {
         const key =
           input.placeholder?.toLowerCase().replace(/\s+/g, "_") ||
           input.name ||
           "field";
-        if (input.value) data[key] = input.value;
+        if (input.value) updateData[key] = input.value;
       });
 
       try {
-        // 👇 tu backend usa PUT con parámetro en URL
         const res = await fetch(`${API_URL}/api/lead/${encodeURIComponent(userEmail)}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify(updateData),
         });
 
-        if (!res.ok) throw new Error("Failed to update lead");
+        if (!res.ok) {
+          console.error("PUT error:", await res.text());
+          throw new Error("Failed to update lead");
+        }
 
-        // Step 3 — mostrar agradecimiento
+        console.log("✅ Lead updated successfully");
+
+        // Mostrar paso 3
         extraForm.classList.add("hidden");
         thankYou.classList.remove("hidden");
         setTimeout(() => thankYou.classList.add("opacity-100"), 50);
