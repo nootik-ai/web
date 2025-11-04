@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--
+    Esta versión de la landing page está inspirada en los consejos de Karri Saarinen
+    (Linear) descritos en el podcast de Y Combinator sobre cómo construir una marca.
+    Se centra en la autenticidad y la claridad: sólo comunicamos lo que el producto
+    realmente hace hoy y quiénes somos. La página es deliberadamente simple,
+    con un mensaje específico para un público con dificultad de atención en llamadas.
+  -->
+  <title>Nootik — Tu copiloto de concentración</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Nootik te ayuda a mantenerte presente en videollamadas con recordatorios suaves y resúmenes rápidos." />
+  <link rel="icon" href="brand/nootik_icon.png" />
+  <style>
+    /*
+      Paleta revisada inspirada en estudios de psicología del color.
+      - El azul transmite calma y serenidad, ayudando a mejorar la productividad【8102920801740†L85-L88】.
+      - El verde evoca frescura y reduce el estrés【8102920801740†L88-L90】.
+      - El amarillo estimula la creatividad y el dinamismo cuando se usa con moderación【8102920801740†L92-L94】.
+      Combinamos un tono azul verdoso como color principal, un verde claro como secundario
+      y toques dorados para llamar la atención, sobre fondos neutros muy claros.
+    */
+    :root {
+      --primary: #007C83;        /* azul verdoso principal para calma y enfoque */
+      --primary-hover: #005E64;  /* versión más oscura para efectos hover */
+      --secondary: #59B49E;      /* verde claro para detalles y badges */
+      --accent: #F9A620;         /* amarillo dorado para CTA y enlaces importantes */
+      --background-accent: #F5F9F8; /* fondo muy claro para secciones resaltadas */
+      --blur-circle-1: #DCF5F1;  /* colores suaves para círculos difuminados */
+      --blur-circle-2: #EBF7F7;
+    }
+    /* Ajustamos la selección de texto para usar un tono suave acorde a la paleta */
+    ::selection { background: #EAF7F5; color: #004E52; }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-slate-900 antialiased">
+  <!-- Encabezado simple con CTA -->
+  <header class="sticky top-0 z-40 w-full border-b border-slate-100 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+      <a href="#" class="flex items-center gap-3">
+        <img src="brand/nootik_icon.png" alt="Icono Nootik" class="h-7 w-7" />
+        <span class="text-lg font-semibold tracking-tight text-[#0B1F33]">Nootik</span>
+      </a>
+      <!-- Usamos variables CSS para los colores de fondo y hover -->
+      <a href="#beta" class="rounded-xl px-4 py-2 text-sm font-semibold text-white shadow-sm transition" style="background-color: var(--primary);" onmouseover="this.style.backgroundColor='var(--primary-hover)'" onmouseout="this.style.backgroundColor='var(--primary)'">Join the waitlist</a>
+    </div>
+  </header>
+
+  <!-- Sección hero con un mensaje claro -->
+  <section class="relative overflow-hidden">
+    <div class="pointer-events-none absolute -left-24 -top-24 h-56 w-56 rounded-full blur-3xl" style="background-color: var(--blur-circle-1);"></div>
+    <div class="pointer-events-none absolute -right-24 top-24 h-56 w-56 rounded-full blur-3xl" style="background-color: var(--blur-circle-2);"></div>
+    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-5 pb-16 pt-16 md:grid-cols-2">
+      <div>
+        <h1 class="text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-5xl">
+          Focus on what matters
+        </h1>
+        <p class="mt-4 max-w-lg text-lg text-slate-600">
+          Nootik is your focus co‑pilot for meetings and classes. It senses distractions in real time and gives gentle nudges so you don't miss a beat. If you drift away, you'll get a quick summary of what you missed.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <!-- CTA principal con tono azul verdoso -->
+          <a href="#beta" class="rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm transition" style="background-color: var(--primary);" onmouseover="this.style.backgroundColor='var(--primary-hover)'" onmouseout="this.style.backgroundColor='var(--primary)'">Join the beta</a>
+          <a href="#how" class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">How it works?</a>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">We're in beta and still building Nootik. Your feedback will help us improve.</p>
+      </div>
+      <div class="relative mt-8 md:mt-0">
+        <!-- Mostramos el asistente en acción dentro de un contenedor con borde y sombra -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_20px_70px_-20px_rgba(0,124,131,0.35)]">
+          <img src="brand/assistant_hero.png" alt="Vista previa del asistente de Nootik" class="h-auto w-full rounded-xl" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key benefits section redesigned for a modern, innovative look -->
+  <section id="benefits" class="border-b border-slate-100 bg-white">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <div class="mx-auto mb-12 max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Designed for real‑world focus</h2>
+        <p class="mt-3 text-slate-600">Supportive for ADHD and valuable for anyone who wants presence and clarity.</p>
+      </div>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <!-- Card: Real‑Time Detection -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full" style="background-color: var(--background-accent);">
+            <!-- Icon: radar/waves for detection -->
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--primary);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m7.07-7.07h2m-14.14 0H3m13.02-5.02l1.42-1.42m-10.09 10.1l1.42-1.42m0-10.1L6.93 4.93m10.1 10.1l1.42 1.42"></path>
+            </svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Real‑Time Detection</h3>
+          <p class="mt-2 text-sm text-slate-600">Nootik learns your attention patterns and senses when you're drifting—without invading your privacy.</p>
+        </div>
+        <!-- Card: Gentle Reminders -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full" style="background-color: var(--background-accent);">
+            <!-- Icon: bell for reminders -->
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--primary);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405C18.385 14.79 18 13.44 18 12V7.5a6.5 6.5 0 10-13 0V12c0 1.44-.385 2.79-1.595 3.595L3 17h5m7 0a3 3 0 11-6 0m6 0H9"></path>
+            </svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Gentle Reminders</h3>
+          <p class="mt-2 text-sm text-slate-600">Subtle, stress‑free alerts bring you back to the moment.</p>
+        </div>
+        <!-- Card: Instant Recap -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full" style="background-color: var(--background-accent);">
+            <!-- Icon: document for recap -->
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--primary);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 2h8l5 5v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 7H9m0 4h8m-8 4h8"></path>
+            </svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Instant Recap</h3>
+          <p class="mt-2 text-sm text-slate-600">Drifted away? We offer a concise summary so you can pick up the conversation without missing anything.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Nootik works - redesigned for clarity and innovation -->
+  <section id="how" class="bg-slate-50">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <div class="mx-auto mb-12 max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight md:text-4xl">How Nootik works</h2>
+        <p class="mt-3 text-slate-600">Install the extension, join your call and let Nootik keep you on track.</p>
+      </div>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <!-- Step 1 -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full" style="background-color: var(--background-accent);">
+            <!-- Icon for install: download arrow -->
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--primary);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 20h18"></path>
+            </svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Install the extension</h3>
+          <p class="mt-2 text-sm text-slate-600">Add Nootik to your browser and enable it in your meeting tools.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full" style="background-color: var(--background-accent);">
+            <!-- Icon for stay present: target/focus -->
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--primary);">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2m10-10h-2m-16 0H2m3.3-4.7l1.4 1.4m10.6 10.6l1.4 1.4m0-12L16.3 7.3m-12 10.6l1.4-1.4"></path>
+            </svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Stay present</h3>
+          <p class="mt-2 text-sm text-slate-600">Nootik detects when you lose focus and gently reminds you to return.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <div class="flex items-center justify-center h-12 w-12 rounded-full" style="background-color: var(--background-accent);">
+            <!-- Icon for recap: document/list -->
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--primary);">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 2h8l5 5v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 7H9m0 4h8m-8 4h8"></path>
+            </svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Review & recap</h3>
+          <p class="mt-2 text-sm text-slate-600">Receive concise summaries of key points when you return to the meeting.</p>
+        </div>
+      </div>
+      <!-- CTA call-out for beta -->
+      <div class="mt-10 rounded-2xl p-6 text-center text-slate-800" style="background-color: var(--background-accent); border: 1px solid var(--primary);">
+        <p class="text-sm">Want early access? <a href="#beta" class="font-semibold underline underline-offset-4" style="color: var(--accent);">Join the beta</a> and help shape Nootik.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de transparencia/privacidad -->
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-5xl px-5 py-16">
+      <h2 class="text-2xl font-bold tracking-tight">Transparency and Privacy</h2>
+      <p class="mt-4 max-w-3xl text-sm text-slate-600">
+        We’re a small team building Nootik for people who struggle with focus. All processing is done locally whenever possible; we never share your audio without your consent. You can pause or delete your data at any time. We want you to know exactly what we’re building and how we use it.
+      </p>
+      <p class="mt-4 text-sm text-slate-600">
+        Currently, Nootik works on Google Meet and Zoom (web version). We’re working to add more platforms.
+      </p>
+    </div>
+  </section>
+
+  <!-- Llamado final a la acción -->
+  <section id="beta" class="bg-white">
+    <div class="mx-auto max-w-6xl px-5 py-16 text-center">
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Join our waitlist</h2>
+      <p class="mt-3 text-slate-600">Leave us your email and we'll notify you when the beta is ready.</p>
+      <form class="mt-6 flex flex-col items-center gap-3 md:flex-row md:justify-center" action="#" method="post" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" class="w-full max-w-md rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none" style="--tw-ring-color: var(--primary);" required onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor=''" />
+        <!-- Botón con color de acento para destacar la acción -->
+        <button type="submit" class="rounded-lg px-5 py-3 text-sm font-semibold text-white shadow-sm transition" style="background-color: var(--accent);" onmouseover="this.style.backgroundColor='#D38F12'" onmouseout="this.style.backgroundColor='var(--accent)'">Notify me</button>
+      </form>
+      <p class="mt-3 text-xs text-slate-500">We promise not to spam you. We will only contact you with important updates.</p>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="border-t border-slate-100 bg-white">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-10 md:flex-row">
+      <a href="#" class="flex items-center gap-2">
+        <img src="brand/nootik_icon.png" alt="Icono Nootik" class="h-6 w-6" />
+        <span class="text-sm font-semibold text-[#0B1F33]">Nootik</span>
+      </a>
+      <p class="text-xs text-slate-500">© 2025 Nootik — Keep your focus on what's important.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="#" class="text-slate-600 transition hover:text-slate-900">Privacy</a>
+        <a href="#" class="text-slate-600 transition hover:text-slate-900">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
