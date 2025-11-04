@@ -267,6 +267,8 @@
           if (input.value.trim()) updateData[key] = input.value.trim();
         });
         try {
+          console.log('User email:', userEmail);
+          console.log('Updating lead with data:', updateData);
           const res = await fetch(API_URL + '/api/lead/' + encodeURIComponent(userEmail), {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
