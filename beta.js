@@ -3,24 +3,21 @@ const API_URL = "https://nootik-api.onrender.com";
 document.addEventListener("DOMContentLoaded", () => {
   const betaForm = document.getElementById("beta-form");
   const extraForm = document.getElementById("extra-form");
-  const thankYou = document.getElementById("thank-you"); // 👈 nuevo
+  const thankYou = document.getElementById("thank-you");
+  let userEmail = ""; // 👉 guardamos el email globalmente
 
   if (!betaForm) return;
 
-  // Paso 1: Guardar email
+  // STEP 1: Save email
   betaForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const emailInput = betaForm.querySelector('input[type="email"]');
     const email = emailInput.value.trim();
-
-    if (!email) {
-      alert("Please enter your email.");
-      return;
-    }
+    if (!email) return alert("Please enter your email.");
 
     try {
-      const res = await fetch(`${API_URL}/api/lead/`, {
+      const res = await fetch(`${API_URL}/api/lead`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -28,24 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!res.ok) throw new Error("Failed to save lead");
 
-      // Mostrar segundo paso
+      userEmail = email; // ✅ guardamos email para paso 2
+
+      // Step 2
       betaForm.classList.add("hidden");
       extraForm.classList.remove("hidden");
       setTimeout(() => extraForm.classList.add("opacity-100"), 50);
-
     } catch (err) {
       console.error("Error saving lead:", err);
       alert("Something went wrong. Please try again later.");
     }
   });
 
-  // Paso 2: Guardar más información opcional
+  // STEP 2: Save extra info
   const feedbackBtn = extraForm?.querySelector("button");
   if (feedbackBtn) {
     feedbackBtn.addEventListener("click", async () => {
       const inputs = extraForm.querySelectorAll("input, select, textarea");
-      const email = document.querySelector("#beta-form input[type='email']").value;
-      const data = { email };
+      const data = {};
 
       inputs.forEach((input) => {
         const key =
@@ -56,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       try {
-        const res = await fetch(`${API_URL}/api/lead/${encodeURIComponent(email)}`, {
+        const res = await fetch(`${API_URL}/api/lead/${encodeURIComponent(userEmail)}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
@@ -64,11 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!res.ok) throw new Error("Failed to update lead");
 
-        // 👇 NUEVO: mostrar Step 3 de agradecimiento
+        // STEP 3 — Thank you screen
         extraForm.classList.add("hidden");
         thankYou.classList.remove("hidden");
         setTimeout(() => thankYou.classList.add("opacity-100"), 50);
-
       } catch (err) {
         console.error("Error sending feedback:", err);
         alert("Could not send feedback, please try again later.");
