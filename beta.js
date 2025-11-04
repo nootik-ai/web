@@ -4,20 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const betaForm = document.getElementById("beta-form");
   const extraForm = document.getElementById("extra-form");
   const thankYou = document.getElementById("thank-you");
-  let userEmail = ""; // 👉 guardamos el email globalmente
+  let userEmail = ""; // guardar email globalmente
 
   if (!betaForm) return;
 
-  // STEP 1: Save email
+  // Paso 1: Guardar email
   betaForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const emailInput = betaForm.querySelector('input[type="email"]');
     const email = emailInput.value.trim();
-    if (!email) return alert("Please enter your email.");
+
+    if (!email) {
+      alert("Please enter your email.");
+      return;
+    }
 
     try {
-      const res = await fetch(`${API_URL}/api/lead`, {
+      // 👇 usamos tu ruta original que funcionaba
+      const res = await fetch(`${API_URL}/api/lead/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -25,19 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!res.ok) throw new Error("Failed to save lead");
 
-      userEmail = email; // ✅ guardamos email para paso 2
+      userEmail = email; // guardar email para el paso 2
 
-      // Step 2
+      // Mostrar segundo paso
       betaForm.classList.add("hidden");
       extraForm.classList.remove("hidden");
       setTimeout(() => extraForm.classList.add("opacity-100"), 50);
+
     } catch (err) {
       console.error("Error saving lead:", err);
       alert("Something went wrong. Please try again later.");
     }
   });
 
-  // STEP 2: Save extra info
+  // Paso 2: Guardar más información opcional
   const feedbackBtn = extraForm?.querySelector("button");
   if (feedbackBtn) {
     feedbackBtn.addEventListener("click", async () => {
@@ -53,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       try {
+        // 👇 tu backend usa PUT con parámetro en URL
         const res = await fetch(`${API_URL}/api/lead/${encodeURIComponent(userEmail)}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -61,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!res.ok) throw new Error("Failed to update lead");
 
-        // STEP 3 — Thank you screen
+        // Step 3 — mostrar agradecimiento
         extraForm.classList.add("hidden");
         thankYou.classList.remove("hidden");
         setTimeout(() => thankYou.classList.add("opacity-100"), 50);
