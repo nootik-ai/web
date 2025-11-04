@@ -1,21 +1,21 @@
+// beta.js
 const API_URL = "https://nootik-api.onrender.com";
 
 document.addEventListener("DOMContentLoaded", () => {
   const betaForm = document.getElementById("beta-form");
   const extraForm = document.getElementById("extra-form");
-  const thankYou = document.getElementById("thank-you");
+  const thankYou  = document.getElementById("thank-you");
 
-  let userEmail = ""; // Guardamos el email globalmente
+  // variable para recordar el email entre pasos
+  let userEmail = "";
 
   if (!betaForm) return;
 
-  // ✅ Paso 1: Guardar email en DB
+  // Paso 1: guardar el email
   betaForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const emailInput = betaForm.querySelector('input[type="email"]');
-    const email = emailInput.value.trim();
-
+    const email = emailInput.value.trim().toLowerCase(); // normalizar
     if (!email) {
       alert("Please enter your email.");
       return;
@@ -27,16 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-
       if (!res.ok) {
         console.error("POST error:", await res.text());
         throw new Error("Failed to save lead");
       }
 
-      console.log("✅ Lead saved successfully");
-      userEmail = email; // Guardamos el email globalmente
+      userEmail = email;
 
-      // Mostrar paso 2
+      // mostrar el paso 2
       betaForm.classList.add("hidden");
       extraForm.classList.remove("hidden");
       setTimeout(() => extraForm.classList.add("opacity-100"), 50);
@@ -46,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ✅ Paso 2: Guardar información adicional (PUT)
+  // Paso 2: guardar la información adicional y pasar al agradecimiento
   const feedbackBtn = extraForm?.querySelector("button");
   if (feedbackBtn) {
     feedbackBtn.addEventListener("click", async () => {
@@ -57,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const inputs = extraForm.querySelectorAll("input, select, textarea");
       const updateData = {};
-
       inputs.forEach((input) => {
         const key =
           input.placeholder?.toLowerCase().replace(/\s+/g, "_") ||
@@ -67,20 +64,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       try {
-        const res = await fetch(`${API_URL}/api/lead/${encodeURIComponent(userEmail)}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updateData),
-        });
+        const res = await fetch(
+          `${API_URL}/api/lead/${encodeURIComponent(userEmail)}`,
+          {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updateData),
+          }
+        );
 
         if (!res.ok) {
           console.error("PUT error:", await res.text());
           throw new Error("Failed to update lead");
         }
 
-        console.log("✅ Lead updated successfully");
-
-        // Mostrar paso 3
+        // mostrar paso 3 de agradecimiento
         extraForm.classList.add("hidden");
         thankYou.classList.remove("hidden");
         setTimeout(() => thankYou.classList.add("opacity-100"), 50);
