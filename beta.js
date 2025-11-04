@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const res = await fetch(`${API_URL}/leads`, {
+      const res = await fetch(`${API_URL}/api/lead/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       try {
-        const res = await fetch(`${API_URL}/leads/update`, {
+        const res = await fetch(`${API_URL}/api/lead/`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
