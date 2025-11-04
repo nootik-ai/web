@@ -43,9 +43,7 @@
   </style>
 </head>
 
-
 <body class="antialiased">
-
   <!-- Header -->
   <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-black/30 backdrop-blur-md">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -90,7 +88,6 @@
         <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#00C2B7]/30 to-[#0FFFC4]/30 blur-2xl"></div>
         <img src="brand/assistant_hero.png" alt="Nootik Chrome Extension preview" class="relative z-10 w-full max-w-4xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(0,194,183,0.25)]" />
       </div>
-      <!-- <p class="mt-4 text-xs text-gray-500">Currently works with Google Meet, Zoom (web) & Microsoft Teams.</p>  -->
       <p class="mt-4 text-xs text-gray-500">Currently works with Google Meet</p>
     </div>
   </section>
@@ -203,7 +200,6 @@
         <p class="mt-4 text-xs text-gray-600">In the meantime, stay focused ✨</p>
       </div>
       <p class="mt-3 text-xs text-gray-500">We’ll only contact you with important updates — no spam.</p>
-
     </div>
   </section>
 
@@ -221,6 +217,72 @@
       </div>
     </div>
   </footer>
-  <script src="beta.js"></script>
+
+  <!-- Script embebido para gestionar el flujo -->
+  <script>
+    const API_URL = "https://nootik-api.onrender.com";
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const betaForm  = document.getElementById('beta-form');
+      const extraForm = document.getElementById('extra-form');
+      const thankYou  = document.getElementById('thank-you');
+      let userEmail   = '';
+
+      // Paso 1: guardar el email y mostrar el paso 2
+      betaForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const emailInput = betaForm.querySelector('input[type="email"]');
+        userEmail = emailInput.value.trim().toLowerCase();
+        if (!userEmail) {
+          alert('Please enter your email.');
+          return;
+        }
+        try {
+          const res = await fetch(API_URL + '/api/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: userEmail })
+          });
+          if (!res.ok) throw new Error('Failed to save lead');
+
+          betaForm.classList.add('hidden');
+          extraForm.classList.remove('hidden');
+          setTimeout(() => extraForm.classList.add('opacity-100'), 50);
+        } catch (err) {
+          console.error(err);
+          alert('Something went wrong. Please try again later.');
+        }
+      });
+
+      // Paso 2: guardar datos extras y mostrar paso 3
+      extraForm.querySelector('button').addEventListener('click', async () => {
+        if (!userEmail) {
+          alert('Something went wrong. Please start again.');
+          return;
+        }
+        const inputs = extraForm.querySelectorAll('input, select, textarea');
+        const updateData = {};
+        inputs.forEach((input) => {
+          const key = (input.placeholder || input.name || '').toLowerCase().replace(/\s+/g, '_');
+          if (input.value.trim()) updateData[key] = input.value.trim();
+        });
+        try {
+          const res = await fetch(API_URL + '/api/lead/' + encodeURIComponent(userEmail), {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updateData)
+          });
+          if (!res.ok) throw new Error('Failed to update lead');
+
+          extraForm.classList.add('hidden');
+          thankYou.classList.remove('hidden');
+          setTimeout(() => thankYou.classList.add('opacity-100'), 50);
+        } catch (err) {
+          console.error(err);
+          alert('Could not send feedback, please try again later.');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
