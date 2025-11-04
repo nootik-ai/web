@@ -177,16 +177,19 @@
       <!-- Step 2 -->
       <div id="extra-form" class="hidden mt-10 max-w-md mx-auto text-left space-y-4 text-gray-300 opacity-0 transition-opacity duration-500">
         <p class="text-center text-gray-300 font-medium">Thanks for joining! Want to tell us a bit more?</p>
-        <input type="text" placeholder="Your name" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]" />
-        <input type="text" placeholder="Your role or what you do" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]" />
-        <select class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]">
+        <input id="name-input" type="text" placeholder="Your name"
+          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]" />
+        <input id="role-input" type="text" placeholder="Your role or what you do"
+          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]" />
+        <select id="freq-input"
+          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]">
           <option value="">How often do you join online meetings?</option>
-          <option>Every day</option>
-          <option>Several times a week</option>
-          <option>Occasionally</option>
+          <option value="Every day">Every day</option>
+          <option value="Several times a week">Several times a week</option>
+          <option value="Occasionally">Occasionally</option>
         </select>
-        <textarea placeholder="Why are you interested in Nootik?" rows="3"
-          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]"></textarea>
+        <textarea id="interest-input" placeholder="Why are you interested in Nootik?"
+          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]" rows="3"></textarea>
         <button type="button"
           class="w-full rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
           Send Feedback
@@ -228,7 +231,7 @@
       const thankYou  = document.getElementById('thank-you');
       let userEmail   = '';
 
-      // Paso 1: guardar el email y mostrar el paso 2
+      // Paso 1: guardar el email
       betaForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const emailInput = betaForm.querySelector('input[type="email"]');
@@ -245,6 +248,7 @@
           });
           if (!res.ok) throw new Error('Failed to save lead');
 
+          // mostrar el paso 2
           betaForm.classList.add('hidden');
           extraForm.classList.remove('hidden');
           setTimeout(() => extraForm.classList.add('opacity-100'), 50);
@@ -254,21 +258,27 @@
         }
       });
 
-      // Paso 2: guardar datos extras y mostrar paso 3
+      // Paso 2: recoger datos y enviar la actualización
       extraForm.querySelector('button').addEventListener('click', async () => {
         if (!userEmail) {
           alert('Something went wrong. Please start again.');
           return;
         }
-        const inputs = extraForm.querySelectorAll('input, select, textarea');
+
+        // recoger valores concretos
+        const name      = document.getElementById('name-input').value.trim();
+        const role      = document.getElementById('role-input').value.trim();
+        const frequency = document.getElementById('freq-input').value.trim();
+        const interest  = document.getElementById('interest-input').value.trim();
+
+        // construir el objeto sin campos vacíos
         const updateData = {};
-        inputs.forEach((input) => {
-          const key = (input.placeholder || input.name || '').toLowerCase().replace(/\s+/g, '_');
-          if (input.value.trim()) updateData[key] = input.value.trim();
-        });
+        if (name) updateData.name = name;
+        if (role) updateData.role = role;
+        if (frequency) updateData.frequency = frequency;
+        if (interest) updateData.interest = interest;
+
         try {
-          console.log('User email:', userEmail);
-          console.log('Updating lead with data:', updateData);
           const res = await fetch(API_URL + '/api/lead/' + encodeURIComponent(userEmail), {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -276,6 +286,7 @@
           });
           if (!res.ok) throw new Error('Failed to update lead');
 
+          // mostrar el paso 3
           extraForm.classList.add('hidden');
           thankYou.classList.remove('hidden');
           setTimeout(() => thankYou.classList.add('opacity-100'), 50);
