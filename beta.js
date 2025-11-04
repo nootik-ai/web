@@ -1,9 +1,9 @@
-// beta.js
 const API_URL = "https://nootik-api.onrender.com";
 
 document.addEventListener("DOMContentLoaded", () => {
   const betaForm = document.getElementById("beta-form");
   const extraForm = document.getElementById("extra-form");
+  const thankYou = document.getElementById("thank-you"); // 👈 nuevo
 
   if (!betaForm) return;
 
@@ -57,18 +57,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const res = await fetch(`${API_URL}/api/lead/${encodeURIComponent(email)}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
         });
 
         if (!res.ok) throw new Error("Failed to update lead");
 
-        extraForm.innerHTML = `
-          <p class="text-[#00C2B7] font-medium text-center mt-4">
-            ✅ Thanks! Your feedback helps shape Nootik.
-          </p>
-        `;
+        // 👇 NUEVO: mostrar Step 3 de agradecimiento
+        extraForm.classList.add("hidden");
+        thankYou.classList.remove("hidden");
+        setTimeout(() => thankYou.classList.add("opacity-100"), 50);
+
       } catch (err) {
         console.error("Error sending feedback:", err);
         alert("Could not send feedback, please try again later.");
