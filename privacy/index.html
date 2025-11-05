@@ -39,17 +39,26 @@
 <body class="antialiased">
 
   <!-- Header -->
-  <header class="sticky top-0 z-40 border-b border-white/10 bg-black/30 backdrop-blur-md">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="../" class="flex items-center gap-2">
-        <img src="../brand/icon.png" alt="Nootik logo" class="h-7 w-7" />
-        <span class="text-lg font-semibold text-white">Nootik</span>
-      </a>
+<header class="sticky top-0 z-40 border-b border-white/10 bg-black/30 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <a href="../" class="flex items-center gap-2">
+      <img src="../brand/icon.png" alt="Nootik logo" class="h-7 w-7" />
+      <span class="text-lg font-semibold text-white">Nootik</span>
+    </a>
+
+    <!-- 👇 Contenedor combinado del botón y el switch -->
+    <div class="flex items-center gap-3">
       <a href="../" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
         Back to Home
       </a>
+      <select id="lang-switch"
+        class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
+        <option value="en" selected>EN</option>
+        <option value="es">ES</option>
+      </select>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Hero -->
   <section class="py-24 text-center">
@@ -125,6 +134,15 @@
       <a href="../" class="text-sm text-gray-400 hover:text-white transition">Back to Home</a>
     </div>
   </footer>
-
+  <script>
+     document.getElementById('lang-switch').addEventListener('change', (e) => {
+      const lang = e.target.value;
+      if (lang === 'es') {
+        window.location.href = 'https://nootik-ai.github.io/web/es/privacy/';  
+      } else {
+        window.location.href = 'https://nootik-ai.github.io/web/privacy/';
+      }
+    });
+  </script>
 </body>
 </html>
