@@ -19,7 +19,7 @@
   <meta property="og:url" content="https://nootikai.com/" />
   <meta property="og:title" content="Nootik — Clear mind. Clear meetings. Real progress." />
   <meta property="og:description" content="Nootik is an AI co-pilot for focus. Stay present and productive in meetings — no recordings, just clarity." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/nootik-ai/web/refs/heads/main/brand/social-preview.png" />
+  <meta property="og:image" content="https://nootik-ai.github.io/web/brand/social-preview.png" />
   <meta property="og:site_name" content="Nootik" />
 
   <!-- Twitter -->
@@ -27,7 +27,7 @@
   <meta name="twitter:url" content="https://nootikai.com/" />
   <meta name="twitter:title" content="Nootik — Your Focus Co-Pilot" />
   <meta name="twitter:description" content="AI-powered productivity plugin that helps you stay focused in online meetings. Designed for ADHD minds and remote teams." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/nootik-ai/web/refs/heads/main/brand/social-preview.png" />
+  <meta name="twitter:image" content="https://nootik-ai.github.io/web/brand/social-preview.png" />
 
   <!-- Favicon -->
   <link rel="icon" href="brand/icon.png" />
@@ -45,52 +45,74 @@
 
 <body class="antialiased">
   <!-- Header -->
-  <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-black/30 backdrop-blur-md">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="#" class="flex items-center gap-2">
-        <img src="brand/icon.png" alt="Nootik logo" class="h-7 w-7" />
-        <span class="text-lg font-semibold text-white">Nootik</span>
-      </a>
-      <nav class="hidden items-center gap-8 md:flex">
-        <a href="#features" class="text-sm text-gray-400 hover:text-white transition">Features</a>
-        <a href="#how" class="text-sm text-gray-400 hover:text-white transition">How it works</a>
-        <a href="#privacy" class="text-sm text-gray-400 hover:text-white transition">Privacy</a>
-      </nav>
+<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-black/30 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <a href="#" class="flex items-center gap-2">
+      <img src="brand/icon.png" alt="Nootik logo" class="h-7 w-7" />
+      <span class="text-lg font-semibold text-white">Nootik</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex">
+      <a href="#features" class="text-sm text-gray-400 hover:text-white transition">Features</a>
+      <a href="#how" class="text-sm text-gray-400 hover:text-white transition">How it works</a>
+      <a href="#privacy" class="text-sm text-gray-400 hover:text-white transition">Privacy</a>
+    </nav>
+
+    <!-- Contenedor alineado del botón + selector -->
+    <div class="flex items-center gap-3">
       <a href="#beta" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
         Join Beta
       </a>
+
+      <!-- Language switch -->
+      <select id="lang-switch"
+        class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
+        <option value="en" selected>EN</option>
+        <option value="es">ES</option>
+      </select>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden pt-24 pb-32">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#0B0D0F] via-[#0E1318] to-[#111826]"></div>
-    <div class="absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#00C2B7]/10 blur-3xl"></div>
-    <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-[#00FFF0]/5 blur-3xl"></div>
+<section class="relative overflow-hidden pt-24 pb-32">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#0B0D0F] via-[#0E1318] to-[#111826]"></div>
+  <div class="absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#00C2B7]/10 blur-3xl"></div>
+  <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-[#00FFF0]/5 blur-3xl"></div>
 
-    <div class="mx-auto max-w-6xl px-6 text-center">
-      <h1 class="text-5xl font-bold leading-tight text-white md:text-6xl">
-        Your <span class="bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] bg-clip-text text-transparent">Focus Co-Pilot</span>
-      </h1>
-      <p class="mx-auto mt-5 max-w-2xl text-lg text-gray-400">
-        Stay present and engaged in meetings. Nootik detects distractions, sends subtle nudges, and generates instant recaps — directly from your Chrome browser.
-      </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href="#beta" class="rounded-xl bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-6 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
-          Add to Chrome (Beta)
-        </a>
-        <a href="#how" class="rounded-xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-          How it works
-        </a>
-      </div>
+  <div class="mx-auto max-w-6xl px-6 text-center">
+    <h1 class="text-5xl font-bold leading-tight text-white md:text-6xl">
+      Your <span class="bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] bg-clip-text text-transparent">Focus Co-Pilot</span> for Google Meet
+    </h1>
 
-      <div class="mt-14 relative flex justify-center">
-        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#00C2B7]/30 to-[#0FFFC4]/30 blur-2xl"></div>
-        <img src="brand/assistant_hero.png" alt="Nootik Chrome Extension preview" class="relative z-10 w-full max-w-4xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(0,194,183,0.25)]" />
-      </div>
-      <p class="mt-4 text-xs text-gray-500">Currently works with Google Meet</p>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
+      Nootik is a <strong>Chrome extension</strong> that helps you stay focused and productive during your online meetings.  
+      It uses AI to detect distractions, send gentle nudges, and generate instant recaps — all processed privately in your browser.  
+      <span class="block mt-2 text-sm text-[#00C2B7]">Currently in beta · Works with Google Meet</span>
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="#beta" class="rounded-xl bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-6 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
+        Join the Beta
+      </a>
+      <a href="#how" class="rounded-xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+        Learn More
+      </a>
     </div>
-  </section>
+
+    <div class="mt-14 relative flex justify-center">
+      <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#00C2B7]/30 to-[#0FFFC4]/30 blur-2xl"></div>
+      <img src="brand/assistant_hero.png" alt="Preview of Nootik Chrome Extension for Google Meet"
+           class="relative z-10 w-full max-w-4xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(0,194,183,0.25)]" />
+    </div>
+
+    <p class="mt-4 text-xs text-gray-500">
+      Nootik is under active development — join now to help shape the beta experience.
+    </p>
+  </div>
+</section>
+
+
 
   <!-- Features -->
   <section id="features" class="border-t border-white/10 bg-[#0D1013] py-24">
@@ -223,6 +245,14 @@
 
   <!-- Script embebido para gestionar el flujo -->
   <script>
+     document.getElementById('lang-switch').addEventListener('change', (e) => {
+      const lang = e.target.value;
+      if (lang === 'es') {
+        window.location.href = '/es/';  
+      } else {
+        window.location.href = '/';
+      }
+    });
     const API_URL = "https://nootik-api.onrender.com";
 
     document.addEventListener('DOMContentLoaded', () => {

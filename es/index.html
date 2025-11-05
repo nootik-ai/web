@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Meta principal -->
+  <title>Nootik — Tu copiloto de enfoque</title>
+  <meta name="title" content="Nootik — Tu copiloto de enfoque" />
+  <meta name="description" content="Nootik te ayuda a mantenerte enfocado y productivo en tus reuniones. Detección de distracciones, recordatorios sutiles y resúmenes instantáneos, todo con privacidad total." />
+  <meta name="keywords" content="Nootik, productividad, enfoque, reuniones, atención, extensión de Chrome, IA, concentración, resumen de reuniones, trabajo remoto" />
+  <meta name="author" content="Nootik" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="es" />
+  <meta name="theme-color" content="#00C2B7" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nootikai.com/es/" />
+  <meta property="og:title" content="Nootik — Mente clara. Reuniones claras. Progreso real." />
+  <meta property="og:description" content="Nootik es tu copiloto de enfoque. Mantente presente y productivo en tus reuniones — sin grabaciones, solo claridad." />
+  <meta property="og:image" content="https://nootik-ai.github.io/web/brand/social-preview.png" />
+  <meta property="og:site_name" content="Nootik" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://nootikai.com/es/" />
+  <meta name="twitter:title" content="Nootik — Tu copiloto de enfoque" />
+  <meta name="twitter:description" content="Extensión de Chrome que te ayuda a mantenerte concentrado en tus reuniones. Diseñada para mentes enfocadas y equipos remotos." />
+  <meta name="twitter:image" content="https://nootik-ai.github.io/web/brand/social-preview.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../brand/icon.png" />
+
+  <!-- Tailwind & Fuentes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0B0D0F; color: #E5E7EB; }
+    ::selection { background: #00C2B7; color: #0B0D0F; }
+  </style>
+</head>
+
+<body class="antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-black/30 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="#" class="flex items-center gap-2">
+        <img src="../brand/icon.png" alt="Logo de Nootik" class="h-7 w-7" />
+        <span class="text-lg font-semibold text-white">Nootik</span>
+      </a>
+
+      <nav class="hidden items-center gap-8 md:flex">
+        <a href="#features" class="text-sm text-gray-400 hover:text-white transition">Características</a>
+        <a href="#how" class="text-sm text-gray-400 hover:text-white transition">Cómo funciona</a>
+        <a href="#privacy" class="text-sm text-gray-400 hover:text-white transition">Privacidad</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#beta" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
+          Unirme a la Beta
+        </a>
+        <select id="lang-switch" class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
+          <option value="en">EN</option>
+          <option value="es" selected>ES</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden pt-24 pb-32">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#0B0D0F] via-[#0E1318] to-[#111826]"></div>
+    <div class="absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#00C2B7]/10 blur-3xl"></div>
+    <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-[#00FFF0]/5 blur-3xl"></div>
+
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <h1 class="text-5xl font-bold leading-tight text-white md:text-6xl">
+        Tu <span class="bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] bg-clip-text text-transparent">copiloto de enfoque</span> para Google Meet
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
+        Nootik es una <strong>extensión de Chrome</strong> que te ayuda a mantenerte enfocado y productivo durante tus reuniones en línea.  
+        Utiliza inteligencia artificial para detectar distracciones, enviarte recordatorios suaves y generar resúmenes instantáneos — todo de forma privada en tu navegador.  
+        <span class="block mt-2 text-sm text-[#00C2B7]">Actualmente en beta · Funciona con Google Meet</span>
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="#beta" class="rounded-xl bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-6 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
+          Unirme a la Beta
+        </a>
+        <a href="#how" class="rounded-xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+          Saber más
+        </a>
+      </div>
+
+      <div class="mt-14 relative flex justify-center">
+        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#00C2B7]/30 to-[#0FFFC4]/30 blur-2xl"></div>
+        <img src="../brand/assistant_hero.png" alt="Vista previa de la extensión Nootik para Google Meet"
+             class="relative z-10 w-full max-w-4xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(0,194,183,0.25)]" />
+      </div>
+
+      <p class="mt-4 text-xs text-gray-500">
+        Nootik está en desarrollo activo — únete ahora y ayúdanos a dar forma a la experiencia beta.
+      </p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="border-t border-white/10 bg-[#0D1013] py-24">
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <h2 class="text-3xl font-semibold text-white md:text-4xl">Diseñado para la atención moderna</h2>
+      <p class="mt-3 text-gray-400">Inteligente. Empático. Local. Nootik combina IA con diseño centrado en las personas.</p>
+
+      <div class="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition hover:bg-white/10">
+          <img src="../brand/detect.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
+          <h3 class="text-lg font-semibold text-white">Detección en tiempo real</h3>
+          <p class="mt-2 text-sm text-gray-400">Comprende tus patrones de atención y detecta cuando pierdes el foco.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition hover:bg-white/10">
+          <img src="../brand/nudge.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
+          <h3 class="text-lg font-semibold text-white">Recordatorios suaves</h3>
+          <p class="mt-2 text-sm text-gray-400">Te ayuda a mantener la calma y la concentración sin interrupciones.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition hover:bg-white/10">
+          <img src="../brand/recap.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
+          <h3 class="text-lg font-semibold text-white">Resúmenes instantáneos</h3>
+          <p class="mt-2 text-sm text-gray-400">Resume los puntos clave para que nunca pierdas lo importante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="border-t border-white/10 bg-[#0B0D0F] py-24">
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <h2 class="text-3xl font-semibold text-white md:text-4xl">Cómo funciona</h2>
+      <p class="mt-3 text-gray-400">Configuración simple. Resultados reales.</p>
+
+      <div class="mt-14 grid grid-cols-1 gap-10 text-left md:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <span class="text-[#00C2B7] text-sm font-semibold">01</span>
+          <h3 class="mt-2 text-lg font-semibold text-white">Instala la extensión</h3>
+          <p class="mt-2 text-sm text-gray-400">Agrega Nootik a Chrome y conéctalo con tus plataformas de reuniones.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <span class="text-[#00C2B7] text-sm font-semibold">02</span>
+          <h3 class="mt-2 text-lg font-semibold text-white">Mantén el enfoque</h3>
+          <p class="mt-2 text-sm text-gray-400">La IA observa tu atención y te da pequeñas señales cuando lo necesitas.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <span class="text-[#00C2B7] text-sm font-semibold">03</span>
+          <h3 class="mt-2 text-lg font-semibold text-white">Recibe resúmenes al instante</h3>
+          <p class="mt-2 text-sm text-gray-400">Obtén resúmenes claros de los puntos clave de cada reunión.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section id="privacy" class="border-t border-white/10 bg-[#0E1114] py-24">
+    <div class="mx-auto max-w-4xl px-6 text-center">
+      <h2 class="text-3xl font-semibold text-white md:text-4xl">Privacidad integrada</h2>
+      <p class="mt-3 text-gray-400">Nunca grabamos ni almacenamos sin tu consentimiento. Nootik está diseñado con transparencia y control.</p>
+      <ul class="mt-10 grid grid-cols-1 gap-4 text-left text-sm text-gray-400 md:grid-cols-2">
+        <li>• Procesamiento local primero, nube solo cuando es necesario.</li>
+        <li>• Tú decides qué se guarda y cuándo se elimina.</li>
+        <li>• Sin rastreo oculto, anuncios ni intercambio de datos con terceros.</li>
+        <li>• Controles claros para pausar, suspender o eliminar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Beta -->
+  <section id="beta" class="border-t border-white/10 bg-[#0B0D0F] py-24 text-center">
+    <div class="mx-auto max-w-5xl px-6">
+      <h2 class="text-3xl font-semibold text-white md:text-4xl">Únete a la Beta</h2>
+      <p class="mt-3 text-gray-400">Forma parte de la próxima generación de tecnología para el enfoque.</p>
+
+      <form id="beta-form" class="mt-8 flex flex-col items-center gap-3 md:flex-row md:justify-center">
+        <input type="email" placeholder="Tu correo electrónico"
+          class="w-full max-w-md rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none focus:border-[#00C2B7]" required />
+        <button type="submit"
+          class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
+          Enviar
+        </button>
+      </form>
+
+      <div id="extra-form" class="hidden mt-10 max-w-md mx-auto text-left space-y-4 text-gray-300 opacity-0 transition-opacity duration-500">
+        <p class="text-center text-gray-300 font-medium">¡Gracias por unirte! ¿Quieres contarnos un poco más?</p>
+        <input id="name-input" type="text" placeholder="Tu nombre" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]" />
+        <input id="role-input" type="text" placeholder="Tu profesión o cargo" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]" />
+        <select id="freq-input" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]">
+          <option value="">¿Con qué frecuencia participas en reuniones en línea?</option>
+          <option value="Cada día">Cada día</option>
+          <option value="Varias veces por semana">Varias veces por semana</option>
+          <option value="Ocasionalmente">Ocasionalmente</option>
+        </select>
+        <textarea id="interest-input" placeholder="¿Por qué te interesa Nootik?" rows="3" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]"></textarea>
+        <button type="button" class="w-full rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
+          Enviar respuesta
+        </button>
+      </div>
+
+      <div id="thank-you" class="hidden mt-10 max-w-md mx-auto text-center opacity-0 transition-opacity duration-500">
+        <p class="text-[#00C2B7] font-medium text-lg">✅ ¡Gracias por unirte a la Beta de Nootik!</p>
+        <p class="mt-2 text-gray-400 text-sm">Pronto recibirás noticias con acceso anticipado y actualizaciones.</p>
+        <p class="mt-4 text-xs text-gray-600">Mientras tanto, ¡mantente enfocado ✨!</p>
+      </div>
+      <p class="mt-3 text-xs text-gray-500">Solo te contactaremos con actualizaciones importantes — sin spam.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-black/60 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
+      <div class="flex items-center gap-2">
+        <img src="../brand/icon.png" alt="Logo Nootik" class="h-6 w-6" />
+        <span class="text-sm font-semibold text-white">Nootik</span>
+      </div>
+      <p class="text-xs text-gray-500">© 2025 Nootik — Creado con empatía e IA.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="../privacy/" class="text-gray-400 hover:text-white transition">Privacidad</a>
+        <a href="https://www.linkedin.com/company/nootik/" target="_blank" class="text-gray-400 hover:text-white transition">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('lang-switch').addEventListener('change', (e) => {
+      const lang = e.target.value;
+      if (lang === 'en') {
+        window.location.href = '/';
+      } else {
+        window.location.href = '/es/';
+      }
+    });
+  </script>
+</body>
+</html>
