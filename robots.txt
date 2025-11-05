@@ -1,1 +1,1 @@
-robots.txt
+Sitemap: https://nootik-ai.github.io/web/sitemap.xml
