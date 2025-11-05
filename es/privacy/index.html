@@ -55,6 +55,11 @@
       <a href="../" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
         Volver al inicio
       </a>
+      <select id="lang-switch"
+        class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
+        <option value="en">EN</option>
+        <option value="es" selected>ES</option>
+      </select>
     </div>
   </header>
 
@@ -132,6 +137,15 @@
       <a href="../" class="text-sm text-gray-400 hover:text-white transition">Volver al inicio</a>
     </div>
   </footer>
-
+  <script>
+     document.getElementById('lang-switch').addEventListener('change', (e) => {
+      const lang = e.target.value;
+      if (lang === 'en') {
+        window.location.href = 'https://nootik-ai.github.io/web/privacy/';  
+      } else {
+        window.location.href = 'https://nootik-ai.github.io/web/es/privacy/';
+      }
+    });
+  </script>
 </body>
 </html>
