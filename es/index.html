@@ -239,77 +239,94 @@
     });
         const API_URL = "https://nootik-api.onrender.com";
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const betaForm  = document.getElementById('beta-form');
-      const extraForm = document.getElementById('extra-form');
-      const thankYou  = document.getElementById('thank-you');
-      let userEmail   = '';
+   document.addEventListener('DOMContentLoaded', () => {
+    const betaForm  = document.getElementById('beta-form');
+    const extraForm = document.getElementById('extra-form');
+    const thankYou  = document.getElementById('thank-you');
+    let userEmail   = '';
 
-      // Paso 1: guardar el email
-      betaForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const emailInput = betaForm.querySelector('input[type="email"]');
-        userEmail = emailInput.value.trim().toLowerCase();
-        if (!userEmail) {
-          alert('Please enter your email.');
-          return;
-        }
-        try {
-          const res = await fetch(API_URL + '/api/lead', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: userEmail })
-          });
-          if (!res.ok) throw new Error('Failed to save lead');
+    // Utilidad para mostrar / ocultar loader
+    function setLoading(button, isLoading, text) {
+      if (isLoading) {
+        button.disabled = true;
+        button.dataset.originalText = button.innerHTML;
+        button.innerHTML = `
+          <div class="flex items-center justify-center gap-2">
+            <svg class="animate-spin h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+            <span>${text}</span>
+          </div>`;
+      } else {
+        button.disabled = false;
+        button.innerHTML = button.dataset.originalText;
+      }
+    }
 
-          // mostrar el paso 2
-          betaForm.classList.add('hidden');
-          extraForm.classList.remove('hidden');
-          setTimeout(() => extraForm.classList.add('opacity-100'), 50);
-        } catch (err) {
-          console.error(err);
-          alert('Something went wrong. Please try again later.');
-        }
-      });
+    // Paso 1: guardar el email
+    betaForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailInput = betaForm.querySelector('input[type="email"]');
+      const submitBtn = betaForm.querySelector('button');
+      userEmail = emailInput.value.trim().toLowerCase();
+      if (!userEmail) return alert('Please enter your email.');
 
-      // Paso 2: recoger datos y enviar la actualización
-      extraForm.querySelector('button').addEventListener('click', async () => {
-        if (!userEmail) {
-          alert('Something went wrong. Please start again.');
-          return;
-        }
+      try {
+        setLoading(submitBtn, true, 'Enviando...');
+        const res = await fetch(API_URL + '/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: userEmail })
+        });
+        if (!res.ok) throw new Error('Failed to save lead');
 
-        // recoger valores concretos
-        const name      = document.getElementById('name-input').value.trim();
-        const role      = document.getElementById('role-input').value.trim();
-        const frequency = document.getElementById('freq-input').value.trim();
-        const interest  = document.getElementById('interest-input').value.trim();
-
-        // construir el objeto sin campos vacíos
-        const updateData = {};
-        if (name) updateData.name = name;
-        if (role) updateData.role = role;
-        if (frequency) updateData.frequency = frequency;
-        if (interest) updateData.interest = interest;
-
-        try {
-          const res = await fetch(API_URL + '/api/lead/' + encodeURIComponent(userEmail), {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updateData)
-          });
-          if (!res.ok) throw new Error('Failed to update lead');
-
-          // mostrar el paso 3
-          extraForm.classList.add('hidden');
-          thankYou.classList.remove('hidden');
-          setTimeout(() => thankYou.classList.add('opacity-100'), 50);
-        } catch (err) {
-          console.error(err);
-          alert('Could not send feedback, please try again later.');
-        }
-      });
+        betaForm.classList.add('hidden');
+        extraForm.classList.remove('hidden');
+        setTimeout(() => extraForm.classList.add('opacity-100'), 50);
+      } catch (err) {
+        console.error(err);
+        alert('Something went wrong. Please try again later.');
+      } finally {
+        setLoading(submitBtn, false, '');
+      }
     });
+
+    // Paso 2: feedback opcional
+    const feedbackBtn = extraForm.querySelector('button');
+    feedbackBtn.addEventListener('click', async () => {
+      if (!userEmail) return alert('Something went wrong. Please start again.');
+      const name      = document.getElementById('name-input').value.trim();
+      const role      = document.getElementById('role-input').value.trim();
+      const frequency = document.getElementById('freq-input').value.trim();
+      const interest  = document.getElementById('interest-input').value.trim();
+
+      const updateData = {};
+      if (name) updateData.name = name;
+      if (role) updateData.role = role;
+      if (frequency) updateData.frequency = frequency;
+      if (interest) updateData.interest = interest;
+
+      try {
+        setLoading(feedbackBtn, true, 'Enviando...');
+        const res = await fetch(API_URL + '/api/lead/' + encodeURIComponent(userEmail), {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updateData)
+        });
+        if (!res.ok) throw new Error('Failed to update lead');
+
+        extraForm.classList.add('hidden');
+        thankYou.classList.remove('hidden');
+        setTimeout(() => thankYou.classList.add('opacity-100'), 50);
+      } catch (err) {
+        console.error(err);
+        alert('Could not send feedback, please try again later.');
+      } finally {
+        setLoading(feedbackBtn, false, '');
+      }
+    });
+  });
   </script>
 </body>
 </html>
