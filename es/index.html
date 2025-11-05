@@ -237,6 +237,79 @@
         window.location.href = 'https://nootik-ai.github.io/web/es/';
       }
     });
+        const API_URL = "https://nootik-api.onrender.com";
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const betaForm  = document.getElementById('beta-form');
+      const extraForm = document.getElementById('extra-form');
+      const thankYou  = document.getElementById('thank-you');
+      let userEmail   = '';
+
+      // Paso 1: guardar el email
+      betaForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const emailInput = betaForm.querySelector('input[type="email"]');
+        userEmail = emailInput.value.trim().toLowerCase();
+        if (!userEmail) {
+          alert('Please enter your email.');
+          return;
+        }
+        try {
+          const res = await fetch(API_URL + '/api/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: userEmail })
+          });
+          if (!res.ok) throw new Error('Failed to save lead');
+
+          // mostrar el paso 2
+          betaForm.classList.add('hidden');
+          extraForm.classList.remove('hidden');
+          setTimeout(() => extraForm.classList.add('opacity-100'), 50);
+        } catch (err) {
+          console.error(err);
+          alert('Something went wrong. Please try again later.');
+        }
+      });
+
+      // Paso 2: recoger datos y enviar la actualización
+      extraForm.querySelector('button').addEventListener('click', async () => {
+        if (!userEmail) {
+          alert('Something went wrong. Please start again.');
+          return;
+        }
+
+        // recoger valores concretos
+        const name      = document.getElementById('name-input').value.trim();
+        const role      = document.getElementById('role-input').value.trim();
+        const frequency = document.getElementById('freq-input').value.trim();
+        const interest  = document.getElementById('interest-input').value.trim();
+
+        // construir el objeto sin campos vacíos
+        const updateData = {};
+        if (name) updateData.name = name;
+        if (role) updateData.role = role;
+        if (frequency) updateData.frequency = frequency;
+        if (interest) updateData.interest = interest;
+
+        try {
+          const res = await fetch(API_URL + '/api/lead/' + encodeURIComponent(userEmail), {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updateData)
+          });
+          if (!res.ok) throw new Error('Failed to update lead');
+
+          // mostrar el paso 3
+          extraForm.classList.add('hidden');
+          thankYou.classList.remove('hidden');
+          setTimeout(() => thankYou.classList.add('opacity-100'), 50);
+        } catch (err) {
+          console.error(err);
+          alert('Could not send feedback, please try again later.');
+        }
+      });
+    });
   </script>
 </body>
 </html>
