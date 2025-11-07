@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nootik Beta Guide — Docs</title>
+  <meta name="description" content="Learn how to install and use the Nootik Beta Chrome extension." />
+  <link rel="icon" href="../brand/icon.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0B0D0F; color: #E5E7EB; overflow-x: hidden; }
+    ::selection { background: #00C2B7; color: #0B0D0F; }
+    .sidebar a.active { color: #00C2B7; font-weight: 600; }
+    .sidebar a:hover { color: #00C2B7; }
+    code { background: #111418; padding: 2px 5px; border-radius: 4px; color: #00C2B7; }
+    pre { background: #111418; padding: 12px; border-radius: 8px; overflow-x: auto; }
+
+    /* Sidebar fix */
+    .sidebar {
+      position: fixed;
+      top: 70px; /* Header height */
+      left: 0;
+      height: calc(100vh - 70px);
+      overflow-y: auto;
+      background-color: #0E1114;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 20px;
+      width: 250px;
+    }
+    main { margin-left: 0; }
+    @media (min-width: 768px) {
+      main { margin-left: 250px; }
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-black/30 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="../" class="flex items-center gap-2">
+        <img src="../brand/icon.png" alt="Nootik logo" class="h-7 w-7" />
+        <span class="text-lg font-semibold text-white">Nootik</span>
+      </a>
+
+      <!-- 👇 Contenedor combinado del botón y el switch -->
+      <div class="flex items-center gap-3">
+        <a href="../" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
+          Back to Home
+        </a>
+        <select id="lang-switch"
+          class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
+          <option value="en" selected>EN</option>
+          <option value="es">ES</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar hidden md:flex flex-col">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 mb-4">Documentation</h2>
+    <nav class="flex flex-col space-y-2 text-sm">
+      <a href="#intro" class="text-gray-400 transition">Welcome</a>
+      <a href="#install" class="text-gray-400 transition">1. Request Early Access</a>
+      <a href="#meet" class="text-gray-400 transition">2. Use it on Google Meet</a>
+      <a href="#insights" class="text-gray-400 transition">3. Get Real-Time Insights</a>
+      <a href="#focus" class="text-gray-400 transition">4. Focus Mode & Privacy</a>
+      <a href="#feedback" class="text-gray-400 transition">5. Give Feedback</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 px-6 py-28 md:px-12 lg:px-20 max-w-4xl mx-auto space-y-20">
+    <!-- Intro -->
+    <section id="intro">
+      <h1 class="text-4xl font-bold text-white">
+        Welcome to the <span class="bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] bg-clip-text text-transparent">Nootik Beta</span>
+      </h1>
+      <p class="mt-4 text-gray-400 text-lg">
+        Follow this quick guide to install and use your Focus Co-Pilot for Google Meet. 
+        This beta helps you test real-time focus tracking and distraction summaries.
+      </p>
+      <div class="mt-8 p-6 rounded-xl bg-[#0E1318] border border-white/10 text-gray-300 text-sm">
+        <p>🚀 <strong>Version:</strong> Beta 0.1.0 — Early Access</p>
+        <p>🧩 <strong>Platform:</strong> Google Chrome + Google Meet</p>
+        <p>🛡️ <strong>Privacy:</strong> Local processing + optional AI summaries via OpenAI</p>
+      </div>
+    </section>
+
+    <!-- Step 1 -->
+    <section id="install">
+      <h2 class="text-2xl font-semibold text-white mb-3">1. Request Early Access</h2>
+      <p class="text-gray-400">
+        Nootik Beta is currently available to registered testers only.<br>
+        Join the early access list to receive installation instructions.
+      </p>
+      <a href="/beta" class="inline-block mt-4 bg-[#00C2B7] hover:bg-[#00b0a5] text-black font-semibold px-5 py-2 rounded-md text-sm transition-all">
+        Join the Beta →
+      </a>
+    </section>
+
+    <!-- Step 2 -->
+    <section id="meet">
+      <h2 class="text-2xl font-semibold text-white mb-3">2. Use it on Google Meet</h2>
+      <p class="text-gray-400">When you open a Google Meet, Nootik activates automatically.</p>
+      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-400 text-sm">
+        <li>Make sure <strong>captions</strong> are turned on (for real-time transcription).</li>
+        <li>The floating panel will appear in the bottom-right corner.</li>
+        <li>You’ll see participants, transcriptions, and your distraction counter.</li>
+        <li>Leaving the tab increases the distraction count.</li>
+      </ul>
+      <img src="../brand/assistant_hero.png" alt="Preview" class="mt-6 rounded-xl border border-white/10 shadow-lg" />
+    </section>
+
+    <!-- Step 3 -->
+    <section id="insights">
+      <h2 class="text-2xl font-semibold text-white mb-3">3. Get Real-Time Insights</h2>
+      <p class="text-gray-400">When you get distracted or leave the meeting tab:</p>
+      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-400 text-sm">
+        <li>Nootik logs when you lost focus and resumed.</li>
+        <li>When you return, it generates a short <strong>AI summary</strong> of what you missed.</li>
+        <li>If you were mentioned by name, it highlights that moment.</li>
+        <li>You can save your full meeting transcript locally with one click.</li>
+      </ul>
+    </section>
+
+    <!-- Step 4 -->
+    <section id="focus">
+      <h2 class="text-2xl font-semibold text-white mb-3">4. Focus Mode & Privacy</h2>
+      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-400 text-sm">
+        <li>Blocks <code>web.whatsapp.com</code> automatically while in a meeting.</li>
+        <li>All detection runs locally in your browser — no data is stored externally.</li>
+        <li>Summaries use OpenAI securely for short text processing only.</li>
+        <li>You can disable features anytime from the panel.</li>
+      </ul>
+      <div class="mt-6 bg-[#0E1318] border border-white/10 rounded-lg p-4 text-gray-300 text-sm">
+        <p><strong>Note:</strong> For best performance, keep captions enabled and avoid minimizing the Meet tab for long periods.</p>
+      </div>
+    </section>
+
+    <!-- Step 5 -->
+    <section id="feedback">
+      <h2 class="text-2xl font-semibold text-white mb-3">5. Give Feedback</h2>
+      <p class="text-gray-400">Your feedback helps shape the next versions of Nootik:</p>
+      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-400 text-sm">
+        <li>Report bugs or ideas to <a href="/feedback" class="text-[#00C2B7] hover:underline">our feedback page</a>.</li>
+        <li>Join our <a href="#" class="text-[#00C2B7] hover:underline">Discord community</a> for early testers.</li>
+        <li>Share screenshots or experiences to help us improve usability.</li>
+      </ul>
+      <p class="mt-4 text-sm text-gray-500">Thanks for being part of this journey 🧠</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-black/60 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
+      <div class="flex items-center gap-2">
+        <img src="../brand/icon.png" alt="Nootik logo" class="h-6 w-6" />
+        <span class="text-sm font-semibold text-white">Nootik Beta</span>
+      </div>
+      <p class="text-xs text-gray-500">© 2025 Nootik — Built with empathy and AI.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="../privacy/" class="text-gray-400 hover:text-white transition">Privacy</a>
+        <a href="https://www.linkedin.com/company/nootik/" target="_blank" class="text-gray-400 hover:text-white transition">Contact</a>
+        <a href="https://nootik-ai.github.io/web/docs/" class="text-gray-400 hover:text-white transition">Docs</a>
+        <a href="../feedback" class="text-[#00C2B7] font-medium">Feedback</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: Active link tracking -->
+  <script>
+    const links = document.querySelectorAll('.sidebar a');
+    const sections = document.querySelectorAll('main section');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 200;
+        if (scrollY >= sectionTop) current = section.getAttribute('id');
+      });
+      links.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+      });
+    });
+
+    // Optional: language switch redirect
+    const langSwitch = document.getElementById('lang-switch');
+    langSwitch.addEventListener('change', (e) => {
+      const value = e.target.value;
+      if (value === 'es') window.location.href = '/es/docs/beta-guide.html';
+      else window.location.href = '/docs/beta-guide.html';
+    });
+  </script>
+</body>
+</html>
