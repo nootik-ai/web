@@ -32,6 +32,50 @@
     @media (min-width: 768px) {
       main { margin-left: 250px; }
     }
+
+    /* ✅ NEW: TOC Drawer for mobile */
+    .toc-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: #0E1114;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 20px;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 50;
+    }
+    .toc-drawer.open {
+      transform: translateX(0);
+    }
+    .toc-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(2px);
+      z-index: 40;
+      display: none;
+    }
+    .toc-overlay.show {
+      display: block;
+    }
+    /* Floating button */
+    #toc-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00C2B7;
+      color: #0B0D0F;
+      font-weight: 600;
+      border-radius: 9999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      z-index: 60;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    #toc-toggle:hover { background: #00b0a5; }
   </style>
 </head>
 
@@ -58,7 +102,7 @@
     </div>
   </header>
 
-  <!-- Sidebar -->
+  <!-- Sidebar (desktop only) -->
   <aside class="sidebar hidden md:flex flex-col">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 mb-4">Documentation</h2>
     <nav class="flex flex-col space-y-2 text-sm">
@@ -153,6 +197,21 @@
     </section>
   </main>
 
+  <!-- ✅ NEW: Mobile TOC Drawer + Toggle -->
+  <div id="toc-overlay" class="toc-overlay"></div>
+  <div id="toc-drawer" class="toc-drawer md:hidden">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 mb-4">Contents</h2>
+    <nav class="flex flex-col space-y-2 text-sm">
+      <a href="#intro" class="text-gray-400 hover:text-[#00C2B7] transition">Welcome</a>
+      <a href="#install" class="text-gray-400 hover:text-[#00C2B7] transition">1. Request Early Access</a>
+      <a href="#meet" class="text-gray-400 hover:text-[#00C2B7] transition">2. Use it on Google Meet</a>
+      <a href="#insights" class="text-gray-400 hover:text-[#00C2B7] transition">3. Get Real-Time Insights</a>
+      <a href="#focus" class="text-gray-400 hover:text-[#00C2B7] transition">4. Focus Mode & Privacy</a>
+      <a href="#feedback" class="text-gray-400 hover:text-[#00C2B7] transition">5. Give Feedback</a>
+    </nav>
+  </div>
+  <button id="toc-toggle" class="md:hidden">☰ Contents</button>
+
   <!-- Footer -->
   <footer class="border-t border-white/10 bg-black/60 backdrop-blur-sm">
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
@@ -164,14 +223,15 @@
       <div class="flex items-center gap-4 text-sm">
         <a href="../privacy/" class="text-gray-400 hover:text-white transition">Privacy</a>
         <a href="https://www.linkedin.com/company/nootik/" target="_blank" class="text-gray-400 hover:text-white transition">Contact</a>
-        <a href="https://nootik-ai.github.io/web/docs/" class="text-gray-400 hover:text-white transition">Docs</a>
-        <a href="../feedback" class="text-[#00C2B7] font-medium">Feedback</a>
+        <a href="https://nootik-ai.github.io/web/docs/" class="text-[#00C2B7] font-medium">Docs</a>
+        <a href="../feedback" class="text-gray-400 hover:text-white transition">Feedback</a>
       </div>
     </div>
   </footer>
 
-  <!-- JS: Active link tracking -->
+  <!-- JS -->
   <script>
+    // Active link tracking
     const links = document.querySelectorAll('.sidebar a');
     const sections = document.querySelectorAll('main section');
     window.addEventListener('scroll', () => {
@@ -186,12 +246,34 @@
       });
     });
 
-    // Optional: language switch redirect
+    // Language switch redirect
     const langSwitch = document.getElementById('lang-switch');
     langSwitch.addEventListener('change', (e) => {
       const value = e.target.value;
       if (value === 'es') window.location.href = '/es/docs/beta-guide.html';
       else window.location.href = '/docs/beta-guide.html';
+    });
+
+    // ✅ TOC Drawer logic
+    const tocToggle = document.getElementById('toc-toggle');
+    const tocDrawer = document.getElementById('toc-drawer');
+    const tocOverlay = document.getElementById('toc-overlay');
+
+    tocToggle.addEventListener('click', () => {
+      tocDrawer.classList.toggle('open');
+      tocOverlay.classList.toggle('show');
+    });
+
+    tocOverlay.addEventListener('click', () => {
+      tocDrawer.classList.remove('open');
+      tocOverlay.classList.remove('show');
+    });
+
+    document.querySelectorAll('#toc-drawer a').forEach(link => {
+      link.addEventListener('click', () => {
+        tocDrawer.classList.remove('open');
+        tocOverlay.classList.remove('show');
+      });
     });
   </script>
 </body>
