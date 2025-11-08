@@ -16,7 +16,7 @@
     code { background: #111418; padding: 2px 5px; border-radius: 4px; color: #00C2B7; }
     pre { background: #111418; padding: 12px; border-radius: 8px; overflow-x: auto; }
 
-    /* Sidebar fix */
+    /* Sidebar (desktop) */
     .sidebar {
       position: fixed;
       top: 70px;
@@ -58,17 +58,39 @@
       display: none;
     }
     .toc-overlay.show { display: block; }
+
+    /* ✅ Responsive typography & spacing for mobile TOC */
+    @media (max-width: 768px) {
+      .toc-drawer nav a {
+        font-size: 1.05rem;
+        padding: 0.75rem 0;
+        display: block;
+      }
+
+      .toc-drawer h2 {
+        font-size: 0.95rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+      }
+
+      .toc-drawer {
+        width: 100%;
+        max-width: 320px;
+        padding: 28px 24px;
+      }
+
+      .toc-drawer nav a.active {
+        background: rgba(0, 194, 183, 0.1);
+        border-radius: 6px;
+        color: #00C2B7 !important;
+        font-weight: 600;
+        padding-left: 0.75rem;
+        transition: all 0.2s ease;
+      }
+    }
   </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4EJ7X946E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-L4EJ7X946E');
-</script>
 <body class="antialiased">
   <!-- Header -->
   <header class="sticky top-0 z-40 border-b border-white/10 bg-black/30 backdrop-blur-md">
@@ -116,7 +138,6 @@
 
   <!-- Main Content -->
   <main class="flex-1 px-6 py-28 md:px-12 lg:px-20 max-w-4xl mx-auto space-y-20">
-    <!-- Intro -->
     <section id="intro">
       <h1 class="text-4xl font-bold text-white">
         Welcome to the <span class="bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] bg-clip-text text-transparent">Nootik Beta</span>
@@ -132,7 +153,6 @@
       </div>
     </section>
 
-    <!-- Step 1 -->
     <section id="install">
       <h2 class="text-2xl font-semibold text-white mb-3">1. Request Early Access</h2>
       <p class="text-gray-400">
@@ -144,7 +164,6 @@
       </a>
     </section>
 
-    <!-- Step 2 -->
     <section id="meet">
       <h2 class="text-2xl font-semibold text-white mb-3">2. Use it on Google Meet</h2>
       <p class="text-gray-400">When you open a Google Meet, Nootik activates automatically.</p>
@@ -157,7 +176,6 @@
       <img src="../brand/assistant_hero.png" alt="Preview" class="mt-6 rounded-xl border border-white/10 shadow-lg" />
     </section>
 
-    <!-- Step 3 -->
     <section id="insights">
       <h2 class="text-2xl font-semibold text-white mb-3">3. Get Real-Time Insights</h2>
       <p class="text-gray-400">When you get distracted or leave the meeting tab:</p>
@@ -169,7 +187,6 @@
       </ul>
     </section>
 
-    <!-- Step 4 -->
     <section id="focus">
       <h2 class="text-2xl font-semibold text-white mb-3">4. Focus Mode & Privacy</h2>
       <ul class="list-disc list-inside mt-4 space-y-2 text-gray-400 text-sm">
@@ -183,7 +200,6 @@
       </div>
     </section>
 
-    <!-- Step 5 -->
     <section id="feedback">
       <h2 class="text-2xl font-semibold text-white mb-3">5. Give Feedback</h2>
       <p class="text-gray-400">Your feedback helps shape the next versions of Nootik:</p>
@@ -201,12 +217,12 @@
   <div id="toc-drawer" class="toc-drawer md:hidden">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 mb-4">Contents</h2>
     <nav class="flex flex-col space-y-2 text-sm">
-      <a href="#intro" class="text-gray-400 hover:text-[#00C2B7] transition">Welcome</a>
-      <a href="#install" class="text-gray-400 hover:text-[#00C2B7] transition">1. Request Early Access</a>
-      <a href="#meet" class="text-gray-400 hover:text-[#00C2B7] transition">2. Use it on Google Meet</a>
-      <a href="#insights" class="text-gray-400 hover:text-[#00C2B7] transition">3. Get Real-Time Insights</a>
-      <a href="#focus" class="text-gray-400 hover:text-[#00C2B7] transition">4. Focus Mode & Privacy</a>
-      <a href="#feedback" class="text-gray-400 hover:text-[#00C2B7] transition">5. Give Feedback</a>
+      <a href="#intro" class="text-gray-400 transition">Welcome</a>
+      <a href="#install" class="text-gray-400 transition">1. Request Early Access</a>
+      <a href="#meet" class="text-gray-400 transition">2. Use it on Google Meet</a>
+      <a href="#insights" class="text-gray-400 transition">3. Get Real-Time Insights</a>
+      <a href="#focus" class="text-gray-400 transition">4. Focus Mode & Privacy</a>
+      <a href="#feedback" class="text-gray-400 transition">5. Give Feedback</a>
     </nav>
   </div>
 
@@ -229,9 +245,10 @@
 
   <!-- JS -->
   <script>
-    // Active link tracking
-    const links = document.querySelectorAll('.sidebar a');
     const sections = document.querySelectorAll('main section');
+
+    // Active link tracking (desktop)
+    const links = document.querySelectorAll('.sidebar a');
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(section => {
@@ -244,7 +261,21 @@
       });
     });
 
-    // Language switch redirect
+    // ✅ Active link tracking (mobile TOC)
+    const tocLinks = document.querySelectorAll('#toc-drawer a');
+    window.addEventListener('scroll', () => {
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 200;
+        if (scrollY >= sectionTop) currentSection = section.getAttribute('id');
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) link.classList.add('active');
+      });
+    });
+
+    // Language switch
     const langSwitch = document.getElementById('lang-switch');
     langSwitch.addEventListener('change', (e) => {
       const value = e.target.value;
@@ -267,7 +298,7 @@
       tocOverlay.classList.remove('show');
     });
 
-    document.querySelectorAll('#toc-drawer a').forEach(link => {
+    tocLinks.forEach(link => {
       link.addEventListener('click', () => {
         tocDrawer.classList.remove('open');
         tocOverlay.classList.remove('show');
