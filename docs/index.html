@@ -252,66 +252,68 @@
   </footer>
 
   <!-- JS -->
-  <script>
-    const sections = document.querySelectorAll('main section');
+<script>
+  const sections = document.querySelectorAll('main section');
 
-    // Active link tracking (desktop)
-    const links = document.querySelectorAll('.sidebar a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 200;
-        if (scrollY >= sectionTop) current = section.getAttribute('id');
-      });
-      links.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
-      });
+  // Active link tracking (desktop)
+  const links = document.querySelectorAll('.sidebar a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 200;
+      if (scrollY >= sectionTop) current = section.getAttribute('id');
     });
-
-    // ✅ Active link tracking (mobile TOC)
-    const tocLinks = document.querySelectorAll('#toc-drawer a');
-    window.addEventListener('scroll', () => {
-      let currentSection = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 200;
-        if (scrollY >= sectionTop) currentSection = section.getAttribute('id');
-      });
-      tocLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) link.classList.add('active');
-      });
+    links.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
     });
+  });
 
-    // Language switch
-    const langSwitch = document.getElementById('lang-switch');
-    langSwitch.addEventListener('change', (e) => {
-      const value = e.target.value;
-      if (value === 'es') window.location.href = '/es/docs/beta-guide.html';
-      else window.location.href = '/docs/beta-guide.html';
+  // ✅ Active link tracking (mobile TOC)
+  const tocLinks = document.querySelectorAll('#toc-drawer a');
+  window.addEventListener('scroll', () => {
+    let currentSection = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 200;
+      if (scrollY >= sectionTop) currentSection = section.getAttribute('id');
     });
-
-    // TOC Drawer logic
-    const tocToggle = document.getElementById('toc-toggle');
-    const tocDrawer = document.getElementById('toc-drawer');
-    const tocOverlay = document.getElementById('toc-overlay');
-
-    tocToggle.addEventListener('click', () => {
-      tocDrawer.classList.toggle('open');
-      tocOverlay.classList.toggle('show');
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSection}`) link.classList.add('active');
     });
+  });
 
-    tocOverlay.addEventListener('click', () => {
+  // ✅ Language switch (updated)
+  document.getElementById('lang-switch').addEventListener('change', (e) => {
+    const lang = e.target.value;
+    if (lang === 'es') {
+      window.location.href = 'https://nootik-ai.github.io/web/es/docs';
+    } else {
+      window.location.href = 'https://nootik-ai.github.io/web/docs';
+    }
+  });
+
+  // TOC Drawer logic
+  const tocToggle = document.getElementById('toc-toggle');
+  const tocDrawer = document.getElementById('toc-drawer');
+  const tocOverlay = document.getElementById('toc-overlay');
+
+  tocToggle.addEventListener('click', () => {
+    tocDrawer.classList.toggle('open');
+    tocOverlay.classList.toggle('show');
+  });
+
+  tocOverlay.addEventListener('click', () => {
+    tocDrawer.classList.remove('open');
+    tocOverlay.classList.remove('show');
+  });
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', () => {
       tocDrawer.classList.remove('open');
       tocOverlay.classList.remove('show');
     });
-
-    tocLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        tocDrawer.classList.remove('open');
-        tocOverlay.classList.remove('show');
-      });
-    });
-  </script>
+  });
+</script>
 </body>
 </html>

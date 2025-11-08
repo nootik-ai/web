@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía Beta de Nootik — Documentación</title>
+  <meta name="description" content="Aprende cómo instalar y usar la extensión de Chrome Nootik Beta." />
+  <link rel="icon" href="../brand/icon.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0B0D0F; color: #E5E7EB; overflow-x: hidden; }
+    ::selection { background: #00C2B7; color: #0B0D0F; }
+    .sidebar a.active { color: #00C2B7; font-weight: 600; }
+    .sidebar a:hover { color: #00C2B7; }
+    code { background: #111418; padding: 2px 5px; border-radius: 4px; color: #00C2B7; }
+    pre { background: #111418; padding: 12px; border-radius: 8px; overflow-x: auto; }
+
+    /* Barra lateral (escritorio) */
+    .sidebar {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      height: calc(100vh - 70px);
+      overflow-y: auto;
+      background-color: #0E1114;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 20px;
+      width: 250px;
+    }
+    main { margin-left: 0; }
+    @media (min-width: 768px) {
+      main { margin-left: 250px; }
+    }
+
+    /* Menú lateral móvil */
+    .toc-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: #0E1114;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 20px;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 50;
+    }
+    .toc-drawer.open { transform: translateX(0); }
+
+    .toc-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(2px);
+      z-index: 40;
+      display: none;
+    }
+    .toc-overlay.show { display: block; }
+
+    /* ✅ Tipografía y espaciado responsive */
+    @media (max-width: 768px) {
+      .toc-drawer nav a {
+        font-size: 1.05rem;
+        padding: 0.75rem 0;
+        display: block;
+      }
+
+      .toc-drawer h2 {
+        font-size: 0.95rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+      }
+
+      .toc-drawer {
+        width: 100%;
+        max-width: 320px;
+        padding: 28px 24px;
+      }
+
+      .toc-drawer nav a.active {
+        background: rgba(0, 194, 183, 0.1);
+        border-radius: 6px;
+        color: #00C2B7 !important;
+        font-weight: 600;
+        padding-left: 0.75rem;
+        transition: all 0.2s ease;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  <!-- Encabezado -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-black/30 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+      <div class="flex items-center gap-3">
+        <!-- Botón del menú (solo móvil) -->
+        <button id="toc-toggle"
+          class="md:hidden flex items-center justify-center rounded-md border border-white/10 bg-white/5 p-2 text-gray-300 hover:text-white hover:border-[#00C2B7] transition">
+          ☰
+        </button>
+
+        <!-- Logo -->
+        <a href="../" class="flex items-center gap-2">
+          <img src="../../brand/icon.png" alt="Logo de Nootik" class="h-7 w-7" />
+          <span class="text-lg font-semibold text-white">Nootik</span>
+        </a>
+      </div>
+
+      <!-- Botones del lado derecho -->
+      <div class="flex items-center gap-3">
+        <a href="../" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
+          Volver al inicio
+        </a>
+        <select id="lang-switch"
+          class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
+          <option value="en">EN</option>
+          <option value="es" selected>ES</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra lateral (solo escritorio) -->
+  <aside class="sidebar hidden md:flex flex-col">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 mb-4">Documentación</h2>
+    <nav class="flex flex-col space-y-2 text-sm">
+      <a href="#intro" class="text-gray-400 transition">Bienvenida</a>
+      <a href="#install" class="text-gray-400 transition">1. Solicita acceso anticipado</a>
+      <a href="#meet" class="text-gray-400 transition">2. Úsalo en Google Meet</a>
+      <a href="#insights" class="text-gray-400 transition">3. Obtén información en tiempo real</a>
+      <a href="#focus" class="text-gray-400 transition">4. Modo enfoque y privacidad</a>
+      <a href="#feedback" class="text-gray-400 transition">5. Envía comentarios</a>
+    </nav>
+  </aside>
+
+  <!-- Contenido principal -->
+  <main class="flex-1 px-6 py-28 md:px-12 lg:px-20 max-w-4xl mx-auto space-y-20">
+    <section id="intro">
+      <h1 class="text-4xl font-bold text-white">
+        Bienvenido a la <span class="bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] bg-clip-text text-transparent">Beta de Nootik</span>
+      </h1>
+      <p class="mt-4 text-gray-400 text-lg">
+        Sigue esta guía rápida para instalar y usar tu copiloto de enfoque en Google Meet.
+        Esta beta te permite probar el seguimiento de enfoque en tiempo real y resúmenes de distracciones.
+      </p>
+      <div class="mt-8 p-6 rounded-xl bg-[#0E1318] border border-white/10 text-gray-300 text-sm">
+        <p>🚀 <strong>Versión:</strong> Beta 0.1.0 — Acceso anticipado</p>
+        <p>🧩 <strong>Plataforma:</strong> Google Chrome + Google Meet</p>
+        <p>🛡️ <strong>Privacidad:</strong> Procesamiento local + resúmenes opcionales con IA (OpenAI)</p>
+      </div>
+    </section>
+
+    <section id="install">
+      <h2 class="text-2xl font-semibold text-white mb-3">1. Solicita acceso anticipado</h2>
+      <p class="text-gray-400">
+        Nootik Beta está disponible únicamente para probadores registrados.<br>
+        Únete a la lista de acceso anticipado para recibir instrucciones de instalación.
+      </p>
+      <a href="../index.html#beta" class="inline-block mt-4 bg-[#00C2B7] hover:bg-[#00b0a5] text-black font-semibold px-5 py-2 rounded-md text-sm transition-all">
+        Unirme a la Beta →
+      </a>
+    </section>
+
+    <section id="meet">
+      <h2 class="text-2xl font-semibold text-white mb-3">2. Úsalo en Google Meet</h2>
+      <p class="text-gray-400">Cuando abras una reunión de Google Meet, Nootik se activará automáticamente.</p>
+      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-400 text-sm">
+        <li>Asegúrate de que los <strong>subtítulos</strong> estén activados (para la transcripción en tiempo real).</li>
+        <li>El panel flotante aparecerá en la esquina inferior derecha.</li>
+        <li>Verás a los participantes, las transcripciones y tu contador de distracciones.</li>
+        <li>Salir de la pestaña aumentará el conteo de distracciones.</li>
+      </ul>
+      <img src="../brand/assistant_hero.png" alt="Vista previa" class="mt-6 rounded-xl border border-white/10 shadow-lg" />
+    </section>
+
+    <section id="insights">
+      <h2 class="text-2xl font-semibold text-white mb-3">3. Obtén información en tiempo real</h2>
+      <p class="text-gray-400">Cuando te distraigas o salgas de la pestaña de la reunión:</p>
+      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-400 text-sm">
+        <li>Nootik registra cuándo perdiste el enfoque y cuándo regresaste.</li>
+        <li>Al volver, genera un breve <strong>resumen con IA</strong> de lo que te perdiste.</li>
+        <li>Si alguien mencionó tu nombre, destacará ese momento.</li>
+        <li>Puedes guardar la transcripción completa localmente con un clic.</li>
+      </ul>
+    </section>
+
+    <section id="focus">
+      <h2 class="text-2xl font-semibold text-white mb-3">4. Modo enfoque y privacidad</h2>
+      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-400 text-sm">
+        <li>Bloquea automáticamente <code>web.whatsapp.com</code> mientras estés en una reunión.</li>
+        <li>Todo el procesamiento ocurre localmente en tu navegador; no se almacena información externa.</li>
+        <li>Los resúmenes usan OpenAI de forma segura solo para procesar texto breve.</li>
+        <li>Puedes desactivar las funciones en cualquier momento desde el panel.</li>
+      </ul>
+      <div class="mt-6 bg-[#0E1318] border border-white/10 rounded-lg p-4 text-gray-300 text-sm">
+        <p><strong>Nota:</strong> Para un mejor rendimiento, mantén los subtítulos activados y evita minimizar la pestaña de Meet por mucho tiempo.</p>
+      </div>
+    </section>
+
+    <section id="feedback">
+      <h2 class="text-2xl font-semibold text-white mb-3">5. Envía comentarios</h2>
+      <p class="text-gray-400">Tu retroalimentación ayuda a mejorar las próximas versiones de Nootik:</p>
+      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-400 text-sm">
+        <li>Reporta errores o comparte ideas en <a href="/feedback" class="text-[#00C2B7] hover:underline">nuestra página de comentarios</a>.</li>
+        <li>Únete a nuestra <a href="#" class="text-[#00C2B7] hover:underline">comunidad en Discord</a> para probadores tempranos.</li>
+        <li>Comparte capturas o experiencias para ayudarnos a mejorar la usabilidad.</li>
+      </ul>
+      <p class="mt-4 text-sm text-gray-500">Gracias por ser parte de este viaje 🧠</p>
+    </section>
+  </main>
+
+  <!-- Menú móvil -->
+  <div id="toc-overlay" class="toc-overlay"></div>
+  <div id="toc-drawer" class="toc-drawer md:hidden">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 mb-4">Contenido</h2>
+    <nav class="flex flex-col space-y-2 text-sm">
+      <a href="#intro" class="text-gray-400 transition">Bienvenida</a>
+      <a href="#install" class="text-gray-400 transition">1. Solicita acceso anticipado</a>
+      <a href="#meet" class="text-gray-400 transition">2. Úsalo en Google Meet</a>
+      <a href="#insights" class="text-gray-400 transition">3. Información en tiempo real</a>
+      <a href="#focus" class="text-gray-400 transition">4. Modo enfoque y privacidad</a>
+      <a href="#feedback" class="text-gray-400 transition">5. Envía comentarios</a>
+    </nav>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="border-t border-white/10 bg-black/60 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
+      <div class="flex items-center gap-2">
+        <img src="../../brand/icon.png" alt="Logo de Nootik" class="h-6 w-6" />
+        <span class="text-sm font-semibold text-white">Nootik Beta</span>
+      </div>
+      <p class="text-xs text-gray-500">© 2025 Nootik — Construido con empatía e IA.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="../privacy/" class="text-gray-400 hover:text-white transition">Privacidad</a>
+        <a href="https://www.linkedin.com/company/nootik/" target="_blank" class="text-gray-400 hover:text-white transition">Contacto</a>
+        <a href="https://nootik-ai.github.io/web/docs/" class="text-[#00C2B7] font-medium">Documentación</a>
+        <a href="../feedback" class="text-gray-400 hover:text-white transition">Comentarios</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const sections = document.querySelectorAll('main section');
+
+    // Enlaces activos (escritorio)
+    const links = document.querySelectorAll('.sidebar a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 200;
+        if (scrollY >= sectionTop) current = section.getAttribute('id');
+      });
+      links.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+      });
+    });
+
+    // Enlaces activos (móvil)
+    const tocLinks = document.querySelectorAll('#toc-drawer a');
+    window.addEventListener('scroll', () => {
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 200;
+        if (scrollY >= sectionTop) currentSection = section.getAttribute('id');
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) link.classList.add('active');
+      });
+    });
+
+    // Cambio de idioma
+    document.getElementById('lang-switch').addEventListener('change', (e) => {
+        const lang = e.target.value;
+        if (lang === 'es') {
+        window.location.href = 'https://nootik-ai.github.io/web/docs';
+        } else {
+        window.location.href = 'https://nootik-ai.github.io/web/es/docs';
+        }
+    });
+
+
+    // Menú lateral móvil
+    const tocToggle = document.getElementById('toc-toggle');
+    const tocDrawer = document.getElementById('toc-drawer');
+    const tocOverlay = document.getElementById('toc-overlay');
+
+    tocToggle.addEventListener('click', () => {
+      tocDrawer.classList.toggle('open');
+      tocOverlay.classList.toggle('show');
+    });
+
+    tocOverlay.addEventListener('click', () => {
+      tocDrawer.classList.remove('open');
+      tocOverlay.classList.remove('show');
+    });
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        tocDrawer.classList.remove('open');
+        tocOverlay.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>
