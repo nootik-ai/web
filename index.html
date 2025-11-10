@@ -309,10 +309,27 @@
 
         try {
           setLoading(submitBtn, true, 'Joining...');
+          // Capture and store UTM parameters
+          const params = new URLSearchParams(window.location.search);
+          const utm_source = params.get("utm_source");
+          const utm_medium = params.get("utm_medium");
+          const utm_campaign = params.get("utm_campaign");
+
+          if (utm_source) localStorage.setItem("utm_source", utm_source);
+          if (utm_medium) localStorage.setItem("utm_medium", utm_medium);
+          if (utm_campaign) localStorage.setItem("utm_campaign", utm_campaign);
+
+          const leadData = {
+            email: userEmail,
+            utm_source: localStorage.getItem("utm_source") || "direct",
+            utm_medium: localStorage.getItem("utm_medium") || "unknown",
+            utm_campaign: localStorage.getItem("utm_campaign") || "none",
+          };
+
           const res = await fetch(API_URL + '/api/lead', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: userEmail })
+            body: JSON.stringify(leadData)
           });
           if (!res.ok) throw new Error();
           betaForm.classList.add('hidden');
