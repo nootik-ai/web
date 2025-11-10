@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nootik Feedback</title>
+  <title>Nootik Comentarios</title>
   <link rel="icon" href="../brand/icon.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -21,95 +21,94 @@
   <header class="sticky top-0 z-40 border-b border-white/10 bg-black/30 backdrop-blur-md">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
       <a href="../" class="flex items-center gap-2">
-        <img src="../brand/icon.png" alt="Nootik logo" class="h-7 w-7" />
+        <img src="../brand/icon.png" alt="Logo de Nootik" class="h-7 w-7" />
         <span class="text-lg font-semibold text-white">Nootik</span>
       </a>
 
-      <!-- 👇 Contenedor combinado del botón y el switch -->
       <div class="flex items-center gap-3">
         <a href="../" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
-          Back to Home
+          Volver al inicio
         </a>
         <select id="lang-switch"
           class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
-          <option value="en" selected>EN</option>
-          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="es" selected>ES</option>
         </select>
       </div>
     </div>
-</header>
+  </header>
 
   <main class="flex-1 pt-28 pb-16 px-8 md:px-16 lg:px-24 w-full max-w-[1600px] mx-auto">
     <div class="mb-10">
-      <h1 class="text-4xl font-bold text-white mb-2">💬 Feedback</h1>
+      <h1 class="text-4xl font-bold text-white mb-2">💬 Comentarios</h1>
       <p class="text-gray-400 text-lg max-w-3xl">
-        Help us shape the next versions of Nootik.<br>
-        We read every message — thank you for being part of the journey.
+        Ayúdanos a dar forma a las próximas versiones de Nootik.<br>
+        Leemos cada mensaje — gracias por ser parte del camino.
       </p>
     </div>
 
     <div class="grid grid-cols-1 xl:grid-cols-[60%_40%] gap-16 items-start">
-      <!-- Feedback Form -->
+      <!-- Formulario -->
       <form id="feedback-form" class="space-y-5 bg-[#0E1114] border border-white/10 rounded-xl p-8 shadow-[0_0_30px_rgba(0,0,0,0.3)]">
-        <h2 class="text-2xl font-semibold mb-2">Share your thoughts</h2>
-        <p class="text-gray-500 text-sm mb-4">Tell us what’s working, what’s not, or what you’d love to see next.</p>
+        <h2 class="text-2xl font-semibold mb-2">Comparte tus ideas</h2>
+        <p class="text-gray-500 text-sm mb-4">Cuéntanos qué funciona, qué no o qué te gustaría ver en el futuro.</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label for="name" class="block text-sm text-gray-300 mb-1">Name (optional)</label>
-            <input id="name" name="name" type="text" class="w-full rounded-md px-3 py-2 text-sm" placeholder="Your name" />
+            <label for="name" class="block text-sm text-gray-300 mb-1">Nombre (opcional)</label>
+            <input id="name" name="name" type="text" class="w-full rounded-md px-3 py-2 text-sm" placeholder="Tu nombre" />
           </div>
           <div>
-            <label for="email" class="block text-sm text-gray-300 mb-1">Email (optional)</label>
-            <input id="email" name="email" type="email" class="w-full rounded-md px-3 py-2 text-sm" placeholder="you@example.com" />
+            <label for="email" class="block text-sm text-gray-300 mb-1">Correo (opcional)</label>
+            <input id="email" name="email" type="email" class="w-full rounded-md px-3 py-2 text-sm" placeholder="tú@ejemplo.com" />
           </div>
         </div>
 
         <div>
-          <label for="type" class="block text-sm text-gray-300 mb-1">Feedback Type</label>
+          <label for="type" class="block text-sm text-gray-300 mb-1">Tipo de comentario</label>
           <select id="type" name="type" class="w-full rounded-md px-3 py-2 text-sm">
             <option value="idea">💡 Idea</option>
-            <option value="bug">🐞 Bug</option>
-            <option value="praise">🌟 Praise</option>
-            <option value="other">📝 Other</option>
+            <option value="bug">🐞 Error</option>
+            <option value="praise">🌟 Elogio</option>
+            <option value="other">📝 Otro</option>
           </select>
         </div>
 
         <div>
-          <label for="message" class="block text-sm text-gray-300 mb-1">Your Feedback</label>
-          <textarea id="message" name="message" rows="5" maxlength="500" class="w-full rounded-md px-3 py-2 text-sm" placeholder="Share your thoughts..."></textarea>
+          <label for="message" class="block text-sm text-gray-300 mb-1">Tu comentario</label>
+          <textarea id="message" name="message" rows="5" maxlength="500" class="w-full rounded-md px-3 py-2 text-sm" placeholder="Escribe tus pensamientos..."></textarea>
           <p id="char-count" class="text-xs text-gray-500 mt-1 text-right">0 / 500</p>
         </div>
 
         <div class="flex items-center gap-4">
-          <button id="submit-btn" type="submit" class="bg-[#00C2B7] hover:bg-[#00b0a5] text-black font-semibold px-5 py-2 rounded-md text-sm transition-all">Send Feedback</button>
+          <button id="submit-btn" type="submit" class="bg-[#00C2B7] hover:bg-[#00b0a5] text-black font-semibold px-5 py-2 rounded-md text-sm transition-all">Enviar comentario</button>
           <p id="status" class="text-sm text-gray-400"></p>
         </div>
       </form>
 
-      <!-- Comments Section -->
+      <!-- Sección de comentarios -->
       <section id="comments" class="max-h-[80vh] overflow-y-auto pr-1">
-        <h2 class="text-2xl font-semibold text-white mb-6">Recent Feedback</h2>
+        <h2 class="text-2xl font-semibold text-white mb-6">Comentarios recientes</h2>
         <div id="comments-list" class="space-y-4 pr-2">
-          <p class="text-gray-500 text-sm">Loading feedback...</p>
+          <p class="text-gray-500 text-sm">Cargando comentarios...</p>
         </div>
       </section>
     </div>
   </main>
 
-  <!-- Footer -->
+  <!-- Pie de página -->
   <footer class="border-t border-white/10 bg-black/60 backdrop-blur-sm">
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
       <div class="flex items-center gap-2">
-        <img src="../brand/icon.png" alt="Nootik logo" class="h-6 w-6" />
+        <img src="../brand/icon.png" alt="Logo de Nootik" class="h-6 w-6" />
         <span class="text-sm font-semibold text-white">Nootik Beta</span>
       </div>
-      <p class="text-xs text-gray-500">© 2025 Nootik — Built with empathy and AI.</p>
+      <p class="text-xs text-gray-500">© 2025 Nootik — Creado con empatía e IA.</p>
       <div class="flex items-center gap-4 text-sm">
-        <a href="../privacy/" class="text-gray-400 hover:text-white transition">Privacy</a>
-        <a href="https://www.linkedin.com/company/nootik/" target="_blank" class="text-gray-400 hover:text-white transition">Contact</a>
-        <a href="../docs/" class="text-gray-400 hover:text-white transition">Docs</a>
-        <a href="feedback/" class="text-[#00C2B7] font-medium">Feedback</a>
+        <a href="../privacy/" class="text-gray-400 hover:text-white transition">Privacidad</a>
+        <a href="https://www.linkedin.com/company/nootik/" target="_blank" class="text-gray-400 hover:text-white transition">Contacto</a>
+        <a href="../docs/" class="text-gray-400 hover:text-white transition">Documentación</a>
+        <a href="feedback/" class="text-[#00C2B7] font-medium">Comentarios</a>
       </div>
     </div>
   </footer>
@@ -122,18 +121,15 @@
   const charCount = document.getElementById('char-count');
   const messageInput = document.getElementById('message');
 
-  // Detect environment
   const API_URL = "https://nootik-api.onrender.com";
 
-  // Character counter
   messageInput.addEventListener('input', function() {
     charCount.textContent = messageInput.value.length + " / 500";
   });
 
-  // Render feedback cards
   function renderComments(feedbacks) {
     if (!feedbacks || !feedbacks.length) {
-      commentsList.innerHTML = '<p class="text-gray-500 text-sm">No feedback yet.</p>';
+      commentsList.innerHTML = '<p class="text-gray-500 text-sm">Aún no hay comentarios.</p>';
       return;
     }
 
@@ -143,7 +139,7 @@
         '<div class="comment-card">' +
           '<p class="text-sm text-gray-300 leading-relaxed">' + (item.feedbackMessage || '') + '</p>' +
           '<div class="flex justify-between mt-3 text-xs text-gray-500">' +
-            '<span>' + (item.nombre || 'Anonymous') + '</span>' +
+            '<span>' + (item.nombre || 'Anónimo') + '</span>' +
             '<span>' + new Date(item.createdAt).toLocaleDateString() + '</span>' +
           '</div>' +
         '</div>';
@@ -151,21 +147,19 @@
     commentsList.innerHTML = html;
   }
 
-  // Load existing feedbacks
   async function loadComments() {
     try {
       const res = await fetch(API_URL + '/api/feedback/');
       const data = await res.json();
       renderComments(data);
     } catch (err) {
-      console.error('Error loading feedback:', err);
-      commentsList.innerHTML = '<p class="text-gray-500 text-sm">Error loading feedback.</p>';
+      console.error('Error al cargar los comentarios:', err);
+      commentsList.innerHTML = '<p class="text-gray-500 text-sm">Error al cargar los comentarios.</p>';
     }
   }
 
   loadComments();
 
-  // Submit feedback
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
@@ -175,12 +169,12 @@
     const feedbackMessage = document.getElementById('message').value.trim();
 
     if (!feedbackMessage) {
-      status.textContent = "Please enter some feedback.";
+      status.textContent = "Por favor escribe un comentario.";
       return;
     }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
+    submitBtn.textContent = "Enviando...";
     status.textContent = "";
 
     try {
@@ -191,11 +185,10 @@
       });
 
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Request failed');
+      if (!res.ok) throw new Error(data.error || 'Error en la solicitud');
 
-      // Create a new comment object and prepend it visually
       const newComment = {
-        nombre: nombre || 'Anonymous',
+        nombre: nombre || 'Anónimo',
         feedbackMessage,
         createdAt: new Date().toISOString()
       };
@@ -214,12 +207,12 @@
 
       form.reset();
       charCount.textContent = '0 / 500';
-      status.textContent = 'Feedback received, thank you!';
+      status.textContent = '¡Comentario recibido, gracias!';
     } catch (err) {
-      console.error('POST /feedback error:', err);
-      status.textContent = 'Error sending feedback. Try again.';
+      console.error('Error POST /feedback:', err);
+      status.textContent = 'Error al enviar el comentario. Intenta de nuevo.';
     } finally {
-      submitBtn.textContent = 'Send Feedback';
+      submitBtn.textContent = 'Enviar comentario';
       submitBtn.disabled = false;
     }
   });
