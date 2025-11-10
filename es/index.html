@@ -35,6 +35,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <script src="../geo.js"></script>
   <!-- Estilos base -->
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #0B0D0F; color: #E5E7EB; }
@@ -358,11 +359,15 @@
           if (utm_medium) localStorage.setItem("utm_medium", utm_medium);
           if (utm_campaign) localStorage.setItem("utm_campaign", utm_campaign);
 
+          const geoData = await getClientGeo();
+          
           const leadData = {
             email: userEmail,
-            utm_source: localStorage.getItem("utm_source") || "directo",
-            utm_medium: localStorage.getItem("utm_medium") || "desconocido",
-            utm_campaign: localStorage.getItem("utm_campaign") || "ninguna",
+            utm_source: localStorage.getItem("utm_source") || "direct",
+            utm_medium: localStorage.getItem("utm_medium") || "unknown",
+            utm_campaign: localStorage.getItem("utm_campaign") || "none",
+            language: navigator.language || "unknown",
+            ...geoData,
           };
 
           const res = await fetch(API_URL + '/api/lead', {
