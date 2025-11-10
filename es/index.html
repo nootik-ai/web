@@ -7,69 +7,70 @@
   <!-- Meta principal -->
   <title>Nootik — Tu copiloto de enfoque</title>
   <meta name="title" content="Nootik — Tu copiloto de enfoque" />
-  <meta name="description" content="Nootik te ayuda a mantenerte enfocado y productivo en tus reuniones. Detección de distracciones, recordatorios sutiles y resúmenes instantáneos, todo con privacidad total." />
-  <meta name="keywords" content="Nootik, productividad, enfoque, reuniones, atención, extensión de Chrome, IA, concentración, resumen de reuniones, trabajo remoto" />
+  <meta name="description" content="Nootik te ayuda a mantenerte enfocado en tus reuniones. Detección en tiempo real de distracciones, recordatorios sutiles y resúmenes instantáneos — diseñado para mentes activas y amantes de la productividad." />
+  <meta name="keywords" content="Nootik, enfoque, productividad, asistente IA, ADHD, extensión de Chrome, reuniones, distracciones, trabajo remoto" />
   <meta name="author" content="Nootik" />
-  <meta name="robots" content="index, follow" />
   <meta name="language" content="es" />
+  <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#00C2B7" />
 
-  <!-- Open Graph / Facebook / LinkedIn -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nootikai.com/es/" />
+  <meta property="og:url" content="https://nootik-ai.github.io/web/es/" />
   <meta property="og:title" content="Nootik — Mente clara. Reuniones claras. Progreso real." />
-  <meta property="og:description" content="Nootik es tu copiloto de enfoque. Mantente presente y productivo en tus reuniones — sin grabaciones, solo claridad." />
+  <meta property="og:description" content="Mantente enfocado y productivo en tus reuniones. Sin grabaciones, solo claridad. Tu copiloto de enfoque impulsado por IA." />
   <meta property="og:image" content="https://raw.githubusercontent.com/nootik-ai/web/main/brand/social-preview.png" />
   <meta property="og:site_name" content="Nootik" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://nootikai.com/es/" />
   <meta name="twitter:title" content="Nootik — Tu copiloto de enfoque" />
-  <meta name="twitter:description" content="Extensión de Chrome que te ayuda a mantenerte concentrado en tus reuniones. Diseñada para mentes enfocadas y equipos remotos." />
+  <meta name="twitter:description" content="Extensión de Chrome impulsada por IA que te ayuda a mantenerte enfocado y productivo en tus reuniones en línea." />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/nootik-ai/web/main/brand/social-preview.png" />
 
   <!-- Favicon -->
-  <link rel="icon" href="../brand/icon.png" />
+  <link rel="icon" href="brand/icon.png" />
 
   <!-- Tailwind & Fuentes -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Estilos base -->
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #0B0D0F; color: #E5E7EB; }
     ::selection { background: #00C2B7; color: #0B0D0F; }
   </style>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4EJ7X946E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-L4EJ7X946E');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4EJ7X946E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-L4EJ7X946E');
+  </script>
+</head>
+
 <body class="antialiased">
+
   <!-- Header -->
   <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-black/30 backdrop-blur-md">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="../es/" class="flex items-center gap-2">
-        <img src="../brand/icon.png" alt="Logo de Nootik" class="h-7 w-7" />
+      <a href="#" class="flex items-center gap-2">
+        <img src="brand/icon.png" alt="Logo de Nootik" class="h-7 w-7" />
         <span class="text-lg font-semibold text-white">Nootik</span>
       </a>
-
-      <nav class="hidden items-center gap-8 md:flex">
-        <a href="#features" class="text-sm text-gray-400 hover:text-white transition">Características</a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-sm text-gray-400 hover:text-white transition">Funciones</a>
         <a href="#how" class="text-sm text-gray-400 hover:text-white transition">Cómo funciona</a>
         <a href="#privacy" class="text-sm text-gray-400 hover:text-white transition">Privacidad</a>
       </nav>
-
       <div class="flex items-center gap-3">
         <a href="#beta" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
           Unirme a la Beta
         </a>
-        <select id="lang-switch" class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
+        <select id="lang-switch"
+          class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
           <option value="en">EN</option>
           <option value="es" selected>ES</option>
         </select>
@@ -78,22 +79,20 @@
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden pt-24 pb-32">
+  <section class="relative overflow-hidden pt-24 pb-32 text-center">
     <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#0B0D0F] via-[#0E1318] to-[#111826]"></div>
     <div class="absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#00C2B7]/10 blur-3xl"></div>
     <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-[#00FFF0]/5 blur-3xl"></div>
 
-    <div class="mx-auto max-w-6xl px-6 text-center">
-      <h1 class="text-5xl font-bold leading-tight text-white md:text-6xl">
+    <div class="mx-auto max-w-6xl px-6">
+      <h1 class="text-5xl md:text-6xl font-bold text-white">
         Tu <span class="bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] bg-clip-text text-transparent">copiloto de enfoque</span> para Google Meet
       </h1>
-
       <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-        Nootik es una <strong>extensión de Chrome</strong> que te ayuda a mantenerte enfocado y productivo durante tus reuniones en línea.  
-        Utiliza inteligencia artificial para detectar distracciones, enviarte recordatorios suaves y generar resúmenes instantáneos — todo de forma privada en tu navegador.  
-        <span class="block mt-2 text-sm text-[#00C2B7]">Actualmente en beta · Funciona con Google Meet</span>
+        Mantente enfocado y productivo en tus reuniones en línea con detección de distracciones en tiempo real,
+        recordatorios sutiles y resúmenes instantáneos — todo procesado de forma privada en tu navegador.
+        <span class="block mt-2 text-sm text-[#00C2B7]">Actualmente en Beta · Funciona con Google Meet</span>
       </p>
-
       <div class="mt-8 flex flex-wrap justify-center gap-3">
         <a href="#beta" class="rounded-xl bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-6 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
           Unirme a la Beta
@@ -102,38 +101,35 @@
           Saber más
         </a>
       </div>
-
       <div class="mt-14 relative flex justify-center">
         <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#00C2B7]/30 to-[#0FFFC4]/30 blur-2xl"></div>
-        <img src="../brand/assistant_hero.png" alt="Vista previa de la extensión Nootik para Google Meet"
+        <img src="brand/assistant_hero.png" alt="Vista previa de la extensión Nootik para Chrome"
              class="relative z-10 w-full max-w-4xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(0,194,183,0.25)]" />
       </div>
-
       <p class="mt-4 text-xs text-gray-500">
-        Nootik está en desarrollo activo — únete ahora y ayúdanos a dar forma a la experiencia beta.
+        Nootik está en desarrollo activo — únete ahora para ayudar a mejorar la experiencia beta.
       </p>
     </div>
   </section>
 
-  <!-- Features -->
+  <!-- Funciones -->
   <section id="features" class="border-t border-white/10 bg-[#0D1013] py-24">
     <div class="mx-auto max-w-6xl px-6 text-center">
-      <h2 class="text-3xl font-semibold text-white md:text-4xl">Diseñado para la atención moderna</h2>
+      <h2 class="text-3xl md:text-4xl font-semibold text-white">Diseñado para la atención moderna</h2>
       <p class="mt-3 text-gray-400">Inteligente. Empático. Local. Nootik combina IA con diseño centrado en las personas.</p>
-
       <div class="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition hover:bg-white/10">
-          <img src="../brand/detect.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm hover:bg-white/10 transition">
+          <img src="brand/detect.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
           <h3 class="text-lg font-semibold text-white">Detección en tiempo real</h3>
-          <p class="mt-2 text-sm text-gray-400">Comprende tus patrones de atención y detecta cuando pierdes el foco.</p>
+          <p class="mt-2 text-sm text-gray-400">Analiza tus patrones de atención y detecta cuándo pierdes el enfoque.</p>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition hover:bg-white/10">
-          <img src="../brand/nudge.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm hover:bg-white/10 transition">
+          <img src="brand/nudge.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
           <h3 class="text-lg font-semibold text-white">Recordatorios suaves</h3>
-          <p class="mt-2 text-sm text-gray-400">Te ayuda a mantener la calma y la concentración sin interrupciones.</p>
+          <p class="mt-2 text-sm text-gray-400">Te ayuda a mantener la calma y el enfoque sin interrupciones ni estrés.</p>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition hover:bg-white/10">
-          <img src="../brand/recap.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm hover:bg-white/10 transition">
+          <img src="brand/recap.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
           <h3 class="text-lg font-semibold text-white">Resúmenes instantáneos</h3>
           <p class="mt-2 text-sm text-gray-400">Resume los puntos clave para que nunca pierdas lo importante.</p>
         </div>
@@ -141,12 +137,11 @@
     </div>
   </section>
 
-  <!-- How It Works -->
+  <!-- Cómo funciona -->
   <section id="how" class="border-t border-white/10 bg-[#0B0D0F] py-24">
     <div class="mx-auto max-w-6xl px-6 text-center">
-      <h2 class="text-3xl font-semibold text-white md:text-4xl">Cómo funciona</h2>
+      <h2 class="text-3xl md:text-4xl font-semibold text-white">Cómo funciona</h2>
       <p class="mt-3 text-gray-400">Configuración simple. Resultados reales.</p>
-
       <div class="mt-14 grid grid-cols-1 gap-10 text-left md:grid-cols-3">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
           <span class="text-[#00C2B7] text-sm font-semibold">01</span>
@@ -156,27 +151,27 @@
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
           <span class="text-[#00C2B7] text-sm font-semibold">02</span>
           <h3 class="mt-2 text-lg font-semibold text-white">Mantén el enfoque</h3>
-          <p class="mt-2 text-sm text-gray-400">La IA observa tu atención y te da pequeñas señales cuando lo necesitas.</p>
+          <p class="mt-2 text-sm text-gray-400">La IA observa tu atención y te da pequeñas señales cuando las necesitas.</p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
           <span class="text-[#00C2B7] text-sm font-semibold">03</span>
-          <h3 class="mt-2 text-lg font-semibold text-white">Recibe resúmenes al instante</h3>
-          <p class="mt-2 text-sm text-gray-400">Obtén resúmenes claros de los puntos clave de cada reunión.</p>
+          <h3 class="mt-2 text-lg font-semibold text-white">Obtén resúmenes al instante</h3>
+          <p class="mt-2 text-sm text-gray-400">Recibe resúmenes concisos de los puntos clave automáticamente.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Privacy -->
+  <!-- Privacidad -->
   <section id="privacy" class="border-t border-white/10 bg-[#0E1114] py-24">
     <div class="mx-auto max-w-4xl px-6 text-center">
-      <h2 class="text-3xl font-semibold text-white md:text-4xl">Privacidad integrada</h2>
-      <p class="mt-3 text-gray-400">Nunca grabamos ni almacenamos sin tu consentimiento. Nootik está diseñado con transparencia y control.</p>
+      <h2 class="text-3xl md:text-4xl font-semibold text-white">Privacidad integrada</h2>
+      <p class="mt-3 text-gray-400">Nunca grabamos ni almacenamos sin tu consentimiento. Nootik está diseñado con transparencia y control en mente.</p>
       <ul class="mt-10 grid grid-cols-1 gap-4 text-left text-sm text-gray-400 md:grid-cols-2">
         <li>• Procesamiento local primero, nube solo cuando es necesario.</li>
-        <li>• Tú decides qué se guarda y cuándo se elimina.</li>
-        <li>• Sin rastreo oculto, anuncios ni intercambio de datos con terceros.</li>
-        <li>• Controles claros para pausar, suspender o eliminar.</li>
+        <li>• Tú controlas qué se guarda y cuándo se elimina.</li>
+        <li>• Sin rastreo oculto, publicidad ni intercambio de datos.</li>
+        <li>• Controles claros para pausar, suspender o borrar.</li>
       </ul>
     </div>
   </section>
@@ -184,40 +179,103 @@
   <!-- Beta -->
   <section id="beta" class="border-t border-white/10 bg-[#0B0D0F] py-24 text-center">
     <div class="mx-auto max-w-5xl px-6">
-      <h2 class="text-3xl font-semibold text-white md:text-4xl">Únete a la Beta</h2>
-      <p class="mt-3 text-gray-400">Forma parte de la próxima generación de tecnología para el enfoque.</p>
+      <h2 class="text-3xl md:text-4xl font-semibold text-white">Únete a la Beta</h2>
+      <p class="mt-3 text-gray-400">Sé parte de la próxima generación de tecnología para el enfoque.</p>
 
+      <!-- Paso 1 -->
       <form id="beta-form" class="mt-8 flex flex-col items-center gap-3 md:flex-row md:justify-center">
-        <input type="email" placeholder="Tu correo electrónico"
-          class="w-full max-w-md rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none focus:border-[#00C2B7]" required />
+        <input type="email" placeholder="Tu correo electrónico" required
+          class="w-full max-w-md rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none focus:border-[#00C2B7]" />
         <button type="submit"
           class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
-          Enviar
+          Unirme
         </button>
       </form>
 
-      <div id="extra-form" class="hidden mt-10 max-w-md mx-auto text-left space-y-4 text-gray-300 opacity-0 transition-opacity duration-500">
-        <p class="text-center text-gray-300 font-medium">¡Gracias por unirte! ¿Quieres contarnos un poco más?</p>
-        <input id="name-input" type="text" placeholder="Tu nombre" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]" />
-        <input id="role-input" type="text" placeholder="Tu profesión o cargo" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]" />
-        <select id="freq-input" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]">
-          <option value="" class="text-white bg-gray-800">¿Con qué frecuencia participas en reuniones en línea?</option>
-          <option value="Cada día" class="text-white bg-gray-800">Cada día</option>
-          <option value="Varias veces por semana" class="text-white bg-gray-800">Varias veces por semana</option>
-          <option value="Ocasionalmente" class="text-white bg-gray-800">Ocasionalmente</option>
-        </select>
-        <textarea id="interest-input" placeholder="¿Por qué te interesa Nootik?" rows="3" class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none focus:border-[#00C2B7]"></textarea>
-        <button type="button" class="w-full rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
-          Enviar respuesta
+      <!-- Paso 2A -->
+      <div id="form-2a" class="hidden mt-10 max-w-md mx-auto text-left space-y-6 text-gray-300 opacity-0 transition-opacity duration-500">
+        <p class="text-center text-gray-300 font-medium">Ayúdanos a entender tus desafíos de enfoque 👇</p>
+
+        <div>
+          <label>1. ¿Qué haces normalmente para mantenerte enfocado en reuniones?</label>
+          <select id="q1" class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
+            <option value="">Selecciona una opción</option>
+            <option>Tomar notas</option>
+            <option>Apagar notificaciones</option>
+            <option>Usar temporizadores o apps de enfoque</option>
+            <option>Nada en especial</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div>
+          <label>2. ¿Pierdes detalles importantes durante las reuniones?</label>
+          <select id="q2" class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
+            <option value="">Selecciona una opción</option>
+            <option>A menudo</option>
+            <option>A veces</option>
+            <option>Rara vez</option>
+            <option>Nunca</option>
+          </select>
+        </div>
+
+        <div>
+          <label>3. ¿Qué has intentado para mejorar tu enfoque?</label>
+          <select id="q3" class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
+            <option value="">Selecciona una opción</option>
+            <option>Tomar notas manualmente</option>
+            <option>Apps tipo Pomodoro</option>
+            <option>Grabar o transcribir reuniones</option>
+            <option>Técnicas de respiración o mindfulness</option>
+            <option>Nada todavía</option>
+          </select>
+        </div>
+
+        <button id="next-to-2b" type="button"
+          class="w-full rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
+          Siguiente
         </button>
       </div>
 
+      <!-- Paso 2B -->
+      <div id="form-2b" class="hidden mt-10 max-w-md mx-auto text-left space-y-6 text-gray-300 opacity-0 transition-opacity duration-500">
+        <p class="text-center text-gray-300 font-medium">Casi terminamos ✨ Cuéntanos un poco más</p>
+
+        <div>
+          <label>4. ¿Usarías una extensión de Chrome con IA que detecta distracción y te ayuda a reenfocarte — sin grabar tus reuniones?</label>
+          <select id="q4" class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
+            <option value="">Selecciona una opción</option>
+            <option>Sí, definitivamente</option>
+            <option>Tal vez, quiero saber más</option>
+            <option>No, no me interesa</option>
+          </select>
+        </div>
+
+        <input id="name-input" type="text" placeholder="Tu nombre"
+          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-gray-500 focus:border-[#00C2B7]" />
+        <input id="role-input" type="text" placeholder="Tu rol o a qué te dedicas"
+          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-gray-500 focus:border-[#00C2B7]" />
+        <select id="freq-input" class="w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
+          <option value="">¿Con qué frecuencia participas en reuniones?</option>
+          <option>Todos los días</option>
+          <option>Varias veces a la semana</option>
+          <option>Ocasionalmente</option>
+        </select>
+
+        <button id="send-feedback" type="button"
+          class="w-full rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
+          Enviar
+        </button>
+      </div>
+
+      <!-- Gracias -->
       <div id="thank-you" class="hidden mt-10 max-w-md mx-auto text-center opacity-0 transition-opacity duration-500">
         <p class="text-[#00C2B7] font-medium text-lg">✅ ¡Gracias por unirte a la Beta de Nootik!</p>
-        <p class="mt-2 text-gray-400 text-sm">Pronto recibirás noticias con acceso anticipado y actualizaciones.</p>
-        <p class="mt-4 text-xs text-gray-600">Mientras tanto, ¡mantente enfocado ✨!</p>
+        <p class="mt-2 text-gray-400 text-sm">Pronto recibirás actualizaciones de acceso anticipado.</p>
+        <p class="mt-4 text-xs text-gray-600">Mantente enfocado ✨</p>
       </div>
-      <p class="mt-3 text-xs text-gray-500">Solo te contactaremos con actualizaciones importantes — sin spam.</p>
+
+      <p class="mt-3 text-xs text-gray-500">Solo te contactaremos con información importante — sin spam.</p>
     </div>
   </section>
 
@@ -225,17 +283,20 @@
   <footer class="border-t border-white/10 bg-black/60 backdrop-blur-sm">
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
       <div class="flex items-center gap-2">
-        <img src="../brand/icon.png" alt="Logo Nootik" class="h-6 w-6" />
-        <span class="text-sm font-semibold text-white">Nootik</span>
+        <img src="brand/icon.png" alt="Logo de Nootik" class="h-6 w-6" />
+        <span class="text-sm font-semibold text-white">Nootik Beta</span>
       </div>
-      <p class="text-xs text-gray-500">© 2025 Nootik — Creado con empatía e IA.</p>
+      <p class="text-xs text-gray-500">© 2025 Nootik — Creado con empatía e inteligencia artificial.</p>
       <div class="flex items-center gap-4 text-sm">
-        <a href="../es/privacy/" class="text-gray-400 hover:text-white transition">Privacidad</a>
+        <a href="privacy/" class="text-gray-400 hover:text-white transition">Privacidad</a>
         <a href="https://www.linkedin.com/company/nootik/" target="_blank" class="text-gray-400 hover:text-white transition">Contacto</a>
+        <a href="docs/" class="text-gray-400 hover:text-white transition">Documentación</a>
+        <a href="feedback/" class="text-gray-400 hover:text-white transition">Comentarios</a>
       </div>
     </div>
   </footer>
 
+  <!-- Script -->
   <script>
     document.getElementById('lang-switch').addEventListener('change', (e) => {
       const lang = e.target.value;
@@ -245,96 +306,116 @@
         window.location.href = 'https://nootik-ai.github.io/web/es/';
       }
     });
-        const API_URL = "https://nootik-api.onrender.com";
 
-   document.addEventListener('DOMContentLoaded', () => {
-    const betaForm  = document.getElementById('beta-form');
-    const extraForm = document.getElementById('extra-form');
-    const thankYou  = document.getElementById('thank-you');
-    let userEmail   = '';
+    const API_URL = "https://nootik-api.onrender.com";
 
-    // Utilidad para mostrar / ocultar loader
-    function setLoading(button, isLoading, text) {
-      if (isLoading) {
-        button.disabled = true;
-        button.dataset.originalText = button.innerHTML;
-        button.innerHTML = `
-          <div class="flex items-center justify-center gap-2">
-            <svg class="animate-spin h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
-            </svg>
-            <span>${text}</span>
-          </div>`;
-      } else {
-        button.disabled = false;
-        button.innerHTML = button.dataset.originalText;
+    document.addEventListener('DOMContentLoaded', () => {
+      const betaForm = document.getElementById('beta-form');
+      const f2a = document.getElementById('form-2a');
+      const f2b = document.getElementById('form-2b');
+      const thankYou = document.getElementById('thank-you');
+      let userEmail = '';
+
+      function setLoading(btn, isLoading, text) {
+        if (isLoading) {
+          btn.disabled = true;
+          btn.dataset.originalText = btn.innerHTML;
+          btn.innerHTML = '<div class="flex items-center justify-center gap-2">' +
+            '<svg class="animate-spin h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">' +
+            '<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>' +
+            '<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>' +
+            '</svg><span>' + text + '</span></div>';
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = btn.dataset.originalText;
+        }
       }
-    }
 
-    // Paso 1: guardar el email
-    betaForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const emailInput = betaForm.querySelector('input[type="email"]');
-      const submitBtn = betaForm.querySelector('button');
-      userEmail = emailInput.value.trim().toLowerCase();
-      if (!userEmail) return alert('Please enter your email.');
+      // Paso 1: guardar correo
+      betaForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const emailInput = betaForm.querySelector('input[type="email"]');
+        const submitBtn = betaForm.querySelector('button');
+        userEmail = emailInput.value.trim().toLowerCase();
+        if (!userEmail) return alert('Por favor ingresa tu correo.');
 
-      try {
-        setLoading(submitBtn, true, 'Enviando...');
-        const res = await fetch(API_URL + '/api/lead', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: userEmail })
-        });
-        if (!res.ok) throw new Error('Failed to save lead');
+        try {
+          setLoading(submitBtn, true, 'Enviando...');
+          const params = new URLSearchParams(window.location.search);
+          const utm_source = params.get("utm_source");
+          const utm_medium = params.get("utm_medium");
+          const utm_campaign = params.get("utm_campaign");
 
-        betaForm.classList.add('hidden');
-        extraForm.classList.remove('hidden');
-        setTimeout(() => extraForm.classList.add('opacity-100'), 50);
-      } catch (err) {
-        console.error(err);
-        alert('Something went wrong. Please try again later.');
-      } finally {
-        setLoading(submitBtn, false, '');
-      }
+          if (utm_source) localStorage.setItem("utm_source", utm_source);
+          if (utm_medium) localStorage.setItem("utm_medium", utm_medium);
+          if (utm_campaign) localStorage.setItem("utm_campaign", utm_campaign);
+
+          const leadData = {
+            email: userEmail,
+            utm_source: localStorage.getItem("utm_source") || "directo",
+            utm_medium: localStorage.getItem("utm_medium") || "desconocido",
+            utm_campaign: localStorage.getItem("utm_campaign") || "ninguna",
+          };
+
+          const res = await fetch(API_URL + '/api/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(leadData)
+          });
+
+          if (!res.ok) throw new Error();
+          betaForm.classList.add('hidden');
+          f2a.classList.remove('hidden');
+          setTimeout(() => f2a.classList.add('opacity-100'), 50);
+        } catch (err) {
+          console.error(err);
+          alert('Ocurrió un error. Intenta nuevamente.');
+        } finally {
+          setLoading(submitBtn, false, '');
+        }
+      });
+
+      // Paso 2A → Paso 2B
+      document.getElementById('next-to-2b').addEventListener('click', () => {
+        f2a.classList.add('hidden');
+        f2b.classList.remove('hidden');
+        setTimeout(() => f2b.classList.add('opacity-100'), 50);
+      });
+
+      // Paso 2B: enviar feedback
+      document.getElementById('send-feedback').addEventListener('click', async () => {
+        if (!userEmail) return alert('Por favor comienza nuevamente.');
+        const data = {
+          q1: document.getElementById('q1').value.trim(),
+          q2: document.getElementById('q2').value.trim(),
+          q3: document.getElementById('q3').value.trim(),
+          q4: document.getElementById('q4').value.trim(),
+          name: document.getElementById('name-input').value.trim(),
+          role: document.getElementById('role-input').value.trim(),
+          frequency: document.getElementById('freq-input').value.trim()
+        };
+
+        const btn = document.getElementById('send-feedback');
+        try {
+          setLoading(btn, true, 'Enviando...');
+          const res = await fetch(API_URL + '/api/lead/' + encodeURIComponent(userEmail), {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (!res.ok) throw new Error();
+          f2b.classList.add('hidden');
+          thankYou.classList.remove('hidden');
+          setTimeout(() => thankYou.classList.add('opacity-100'), 50);
+        } catch (err) {
+          console.error(err);
+          alert('No se pudo enviar tu información. Intenta más tarde.');
+        } finally {
+          setLoading(btn, false, '');
+        }
+      });
     });
-
-    // Paso 2: feedback opcional
-    const feedbackBtn = extraForm.querySelector('button');
-    feedbackBtn.addEventListener('click', async () => {
-      if (!userEmail) return alert('Something went wrong. Please start again.');
-      const name      = document.getElementById('name-input').value.trim();
-      const role      = document.getElementById('role-input').value.trim();
-      const frequency = document.getElementById('freq-input').value.trim();
-      const interest  = document.getElementById('interest-input').value.trim();
-
-      const updateData = {};
-      if (name) updateData.name = name;
-      if (role) updateData.role = role;
-      if (frequency) updateData.frequency = frequency;
-      if (interest) updateData.interest = interest;
-
-      try {
-        setLoading(feedbackBtn, true, 'Enviando...');
-        const res = await fetch(API_URL + '/api/lead/' + encodeURIComponent(userEmail), {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(updateData)
-        });
-        if (!res.ok) throw new Error('Failed to update lead');
-
-        extraForm.classList.add('hidden');
-        thankYou.classList.remove('hidden');
-        setTimeout(() => thankYou.classList.add('opacity-100'), 50);
-      } catch (err) {
-        console.error(err);
-        alert('Could not send feedback, please try again later.');
-      } finally {
-        setLoading(feedbackBtn, false, '');
-      }
-    });
-  });
   </script>
+
 </body>
 </html>
