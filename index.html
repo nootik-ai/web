@@ -321,7 +321,7 @@
         const res = await fetch(API_URL + '/api/lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: userEmail })
+          body: JSON.stringify(leadData)
         });
         if (!res.ok) throw new Error('Failed to save lead');
 
