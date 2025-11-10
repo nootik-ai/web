@@ -131,6 +131,14 @@
   </footer>
 
 <script>
+  document.getElementById('lang-switch').addEventListener('change', (e) => {
+      const lang = e.target.value;
+      if (lang === 'es') {
+        window.location.href = 'https://nootik-ai.github.io/es/privacy/';  
+      } else {
+        window.location.href = 'https://nootik-ai.github.io/privacy/';
+      }
+    });
   const form = document.getElementById('feedback-form');
   const status = document.getElementById('status');
   const commentsList = document.getElementById('comments-list');
