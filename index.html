@@ -266,13 +266,39 @@
       </div>
 
       <div>
-        <input id="name-input" type="text" placeholder="Your name"
+        <input id="name-input" type="text" placeholder="Your name (Optional)"
           class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-gray-500 focus:border-[#00C2B7]" />
       </div>
 
       <div>
-        <input id="role-input" type="text" placeholder="Your role or what you do"
-          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-gray-500 focus:border-[#00C2B7]" />
+        <input id="role-input" type="text" list="roles" placeholder="Your role or profession"
+          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white placeholder-gray-500 focus:border-[#00C2B7]" />
+
+        <datalist id="roles">
+          <!-- Tech & Product -->
+          <option value="Software Engineer">
+          <option value="Product Manager">
+          <option value="Designer (UX/UI)">
+          <option value="Data Analyst">
+          <option value="QA Engineer">
+
+          <!-- Business & Operations -->
+          <option value="Founder / CEO">
+          <option value="Marketing Manager">
+          <option value="Sales Representative">
+          <option value="Customer Success">
+          <option value="Operations Manager">
+
+          <!-- Education & Coaching -->
+          <option value="Teacher / Professor">
+          <option value="Coach / Therapist">
+          <option value="Consultant / Advisor">
+
+          <!-- General -->
+          <option value="Student">
+          <option value="Freelancer">
+          <option value="Other">
+        </datalist>
       </div>
 
       <div>
@@ -322,6 +348,16 @@
 
   <!-- Script -->
   <script>
+    const roleInput = document.getElementById('role-input');
+    const otherInput = document.getElementById('role-other');
+
+    roleInput.addEventListener('change', () => {
+      if (roleInput.value === 'Other') {
+        otherInput.classList.remove('hidden');
+      } else {
+        otherInput.classList.add('hidden');
+      }
+    });
      document.getElementById('lang-switch').addEventListener('change', (e) => {
       const lang = e.target.value;
       if (lang === 'es') {
@@ -417,7 +453,7 @@
           q2: document.getElementById('q2').value.trim(),
           q3: document.getElementById('q3').value.trim(),
           q4: document.getElementById('q4').value.trim(),
-          name: document.getElementById('name-input').value.trim(),
+          name: document.getElementById('name-input').value.trim() || null,
           role: document.getElementById('role-input').value.trim(),
           frequency: document.getElementById('freq-input').value.trim()
         };

@@ -260,11 +260,38 @@
           </select>
         </div>
 
-        <input id="name-input" type="text" placeholder="Tu nombre"
+        <input id="name-input" type="text" placeholder="Tu nombre (Opcional)"
           class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-gray-500 focus:border-[#00C2B7]" />
-        <input id="role-input" type="text" placeholder="Tu rol o a qué te dedicas"
-          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-gray-500 focus:border-[#00C2B7]" />
-        <select id="freq-input" class="w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
+        <input id="role-input" type="text" list="roles" placeholder="Tu profesión o cargo"
+            class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white placeholder-gray-500 focus:border-[#00C2B7]" />
+
+          <datalist id="roles">
+            <!-- Tecnología y Producto -->
+            <option value="Ingeniero de Software">
+            <option value="Product Manager">
+            <option value="Diseñador UX/UI">
+            <option value="Analista de Datos">
+            <option value="Ingeniero de QA">
+
+            <!-- Negocios y Operaciones -->
+            <option value="Fundador / CEO">
+            <option value="Gerente de Marketing">
+            <option value="Ejecutivo de Ventas">
+            <option value="Atención al Cliente / Customer Success">
+            <option value="Gerente de Operaciones">
+
+            <!-- Educación y Coaching -->
+            <option value="Profesor / Docente">
+            <option value="Coach / Terapeuta">
+            <option value="Consultor / Asesor">
+
+            <!-- General -->
+            <option value="Estudiante">
+            <option value="Freelancer / Independiente">
+            <option value="Otro">
+          </datalist>
+
+          <select id="freq-input" class="w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
           <option value="">¿Con qué frecuencia participas en reuniones?</option>
           <option>Todos los días</option>
           <option>Varias veces a la semana</option>
@@ -307,6 +334,16 @@
 
   <!-- Script -->
   <script>
+    const roleInput = document.getElementById('role-input');
+    const otherInput = document.getElementById('role-other');
+
+    roleInput.addEventListener('change', () => {
+      if (roleInput.value === 'Other') {
+        otherInput.classList.remove('hidden');
+      } else {
+        otherInput.classList.add('hidden');
+      }
+    });
     document.getElementById('lang-switch').addEventListener('change', (e) => {
       const lang = e.target.value;
       if (lang === 'en') {
