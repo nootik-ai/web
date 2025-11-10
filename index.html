@@ -270,36 +270,23 @@
           class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-gray-500 focus:border-[#00C2B7]" />
       </div>
 
-      <div>
-        <input id="role-input" type="text" list="roles" placeholder="Your role or profession"
-          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white placeholder-gray-500 focus:border-[#00C2B7]" />
+      <label for="role-input" class="text-sm text-gray-400">Your role or profession</label>
+      <select id="role-input"
+        class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-3 text-sm text-white focus:border-[#00C2B7]">
+        <option value="">Select an option</option>
+        <option value="Software Engineer">Software Engineer</option>
+        <option value="Product Manager">Product Manager</option>
+        <option value="UX/UI Designer">UX/UI Designer</option>
+        <option value="Founder / CEO">Founder / CEO</option>
+        <option value="Marketing / Sales">Marketing / Sales</option>
+        <option value="Teacher / Instructor">Teacher / Instructor</option>
+        <option value="Student">Student</option>
+        <option value="Freelancer / Independent">Freelancer / Independent</option>
+        <option value="Other">Other</option>
+      </select>
 
-        <datalist id="roles">
-          <!-- Tech & Product -->
-          <option value="Software Engineer">
-          <option value="Product Manager">
-          <option value="Designer (UX/UI)">
-          <option value="Data Analyst">
-          <option value="QA Engineer">
-
-          <!-- Business & Operations -->
-          <option value="Founder / CEO">
-          <option value="Marketing Manager">
-          <option value="Sales Representative">
-          <option value="Customer Success">
-          <option value="Operations Manager">
-
-          <!-- Education & Coaching -->
-          <option value="Teacher / Professor">
-          <option value="Coach / Therapist">
-          <option value="Consultant / Advisor">
-
-          <!-- General -->
-          <option value="Student">
-          <option value="Freelancer">
-          <option value="Other">
-        </datalist>
-      </div>
+    <input id="role-other" type="text" placeholder="Please specify your profession"
+      class="hidden w-full mt-3 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#00C2B7]" />
 
       <div>
         <select id="freq-input"
@@ -348,16 +335,19 @@
 
   <!-- Script -->
   <script>
-    const roleInput = document.getElementById('role-input');
-    const otherInput = document.getElementById('role-other');
+      const roleSelect = document.getElementById('role-input');
+      const roleOther = document.getElementById('role-other');
 
-    roleInput.addEventListener('change', () => {
-      if (roleInput.value === 'Other') {
-        otherInput.classList.remove('hidden');
-      } else {
-        otherInput.classList.add('hidden');
-      }
-    });
+      roleSelect.addEventListener('change', () => {
+        if (roleSelect.value === 'Other') {
+          roleOther.classList.remove('hidden');
+        } else {
+          roleOther.classList.add('hidden');
+          roleOther.value = '';
+        }
+      });
+
+
      document.getElementById('lang-switch').addEventListener('change', (e) => {
       const lang = e.target.value;
       if (lang === 'es') {
