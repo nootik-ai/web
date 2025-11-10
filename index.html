@@ -69,6 +69,12 @@
         <a href="#beta" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
           Join Beta
         </a>
+              <!-- Language switch -->
+      <select id="lang-switch"
+        class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
+        <option value="en" selected>EN</option>
+        <option value="es">ES</option>
+      </select>
       </div>
     </div>
   </header>
@@ -290,17 +296,31 @@
 
   <!-- Footer -->
   <footer class="border-t border-white/10 bg-black/60 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-6xl flex-col md:flex-row items-center justify-between gap-4 px-6 py-8">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
       <div class="flex items-center gap-2">
         <img src="brand/icon.png" alt="Nootik logo" class="h-6 w-6" />
         <span class="text-sm font-semibold text-white">Nootik Beta</span>
       </div>
       <p class="text-xs text-gray-500">© 2025 Nootik — Built with empathy and AI.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="privacy/" class="text-gray-400 hover:text-white transition">Privacy</a>
+        <a href="https://www.linkedin.com/company/nootik/" target="_blank" class="text-gray-400 hover:text-white transition">Contact</a>
+        <a href="docs/" class="text-gray-400 hover:text-white transition">Docs</a>
+        <a href="feedback/" class="text-gray-400 hover:text-white transition">Feedback</a>
+      </div>
     </div>
   </footer>
 
   <!-- Script -->
   <script>
+     document.getElementById('lang-switch').addEventListener('change', (e) => {
+      const lang = e.target.value;
+      if (lang === 'es') {
+        window.location.href = 'https://nootik-ai.github.io/web/es/';  
+      } else {
+        window.location.href = 'https://nootik-ai.github.io/web/';
+      }
+    });
     const API_URL = "https://nootik-api.onrender.com";
 
     document.addEventListener('DOMContentLoaded', () => {
