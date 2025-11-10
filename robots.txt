@@ -1,1 +1,1 @@
-Sitemap: https://nootik-ai.github.io/web/sitemap.xml
+Sitemap: https://nootik-ai.github.io/sitemap.xml

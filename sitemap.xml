@@ -5,38 +5,38 @@
 
   <!-- Homepage EN -->
   <url>
-    <loc>https://nootik-ai.github.io/web/</loc>
+    <loc>https://nootik-ai.github.io/</loc>
     <lastmod>2025-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://nootik-ai.github.io/web/es/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nootik-ai.github.io/es/" />
   </url>
 
   <!-- Homepage ES -->
   <url>
-    <loc>https://nootik-ai.github.io/web/es/</loc>
+    <loc>https://nootik-ai.github.io/es/</loc>
     <lastmod>2025-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nootik-ai.github.io/web/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nootik-ai.github.io/" />
   </url>
 
   <!-- Privacy EN -->
   <url>
-    <loc>https://nootik-ai.github.io/web/privacy/</loc>
+    <loc>https://nootik-ai.github.io/privacy/</loc>
     <lastmod>2025-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://nootik-ai.github.io/web/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nootik-ai.github.io/privacy/" />
   </url>
 
   <!-- Privacy ES -->
   <url>
-    <loc>https://nootik-ai.github.io/web/es/privacy/</loc>
+    <loc>https://nootik-ai.github.io/privacy/</loc>
     <lastmod>2025-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nootik-ai.github.io/web/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nootik-ai.github.io/privacy/" />
   </url>
 
 </urlset>
