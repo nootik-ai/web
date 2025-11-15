@@ -4,471 +4,451 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary Meta Tags -->
-  <title>Nootik — Your Focus Co-Pilot</title>
-  <meta name="title" content="Nootik — Your Focus Co-Pilot" />
-  <meta name="description" content="Nootik helps you stay focused in meetings. Real-time distraction detection, gentle nudges, and instant recaps — built for ADHD minds and productivity lovers." />
-  <meta name="keywords" content="Nootik, focus, productivity, AI assistant, ADHD, Chrome extension, meeting notes, distraction detection, remote work" />
-  <meta name="author" content="Nootik" />
+    <!-- Primary Meta Tags -->
+  <title>Atntiv — Focus on the work. We track the rest.</title>
+  <meta name="title" content="Atntiv — Focus on the work. We track the rest." />
+  <meta name="description" content="Atntiv keeps you fully present in every meeting. AI-powered attention tracking, subtle focus reminders, and instant smart summaries — designed for high performers and fast-moving teams." />
+  <meta name="keywords" content="Atntiv, focus, productivity, AI meeting assistant, attention tracking, distraction detection, meeting summaries, Chrome extension, remote work, ADHD-friendly tools" />
+  <meta name="author" content="Atntiv" />
   <meta name="language" content="en" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#00C2B7" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nootikai.com/" />
-  <meta property="og:title" content="Nootik — Clear mind. Clear meetings. Real progress." />
-  <meta property="og:description" content="Stay focused and productive in meetings. No recordings, just clarity. Your AI focus co-pilot." />
+  <meta property="og:url" content="https://atntiv.com/" />
+  <meta property="og:title" content="Atntiv — Focus on the work. We track the rest." />
+  <meta property="og:description" content="Atntiv keeps you fully present in every meeting. AI-powered attention tracking, subtle focus reminders, and instant smart summaries — designed for high performers and fast-moving teams." />
   <meta property="og:image" content="https://raw.githubusercontent.com/nootik-ai/web/main/brand/social-preview.png" />
-  <meta property="og:site_name" content="Nootik" />
+  <meta property="og:site_name" content="Atntiv" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nootik — Your Focus Co-Pilot" />
-  <meta name="twitter:description" content="AI-powered Chrome extension that helps you stay focused and productive in online meetings." />
+  <meta name="twitter:title" content="Atntiv — Focus on the work. We track the rest." />
+  <meta name="twitter:description" content="Atntiv keeps you fully present in every meeting. AI-powered attention tracking, subtle focus reminders, and instant smart summaries — designed for high performers and fast-moving teams." />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/nootik-ai/web/main/brand/social-preview.png" />
 
   <!-- Favicon -->
-  <link rel="icon" href="brand/icon.png" />
+  <link rel="icon" href="brand/atntiv-icon.png" />
 
   <!-- Tailwind & Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  
+  <!-- Geo Script -->
   <script src="geo.js"></script>
+
   <!-- Base Styles -->
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #0B0D0F; color: #E5E7EB; }
-    ::selection { background: #00C2B7; color: #0B0D0F; }
+    body { font-family: 'Inter', sans-serif; background: #0A0C0D; color: #E5E7EB; }
   </style>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4EJ7X946E"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-L4EJ7X946E');
-  </script>
-  <!-- MS Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "u43xqyfdiw");
-  </script>
 </head>
 
 <body class="antialiased">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-black/30 backdrop-blur-md">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="#" class="flex items-center gap-2">
-        <img src="brand/icon.png" alt="Nootik logo" class="h-7 w-7" />
-        <span class="text-lg font-semibold text-white">Nootik</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="#features" class="text-sm text-gray-400 hover:text-white transition">Features</a>
-        <a href="#how" class="text-sm text-gray-400 hover:text-white transition">How it works</a>
-        <a href="#privacy" class="text-sm text-gray-400 hover:text-white transition">Privacy</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <a href="#beta" class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:opacity-90">
-          Join Beta
-        </a>
-              <!-- Language switch -->
-      <select id="lang-switch"
-        class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-300 outline-none focus:border-[#00C2B7] transition">
-        <option value="en" selected>EN</option>
-        <option value="es">ES</option>
-      </select>
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 w-full border-b border-white/5 bg-black/10 backdrop-blur-lg">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-2">
+        <img src="brand/atntiv-icon.png" class="h-6 w-6" />
+        <span class="text-sm font-semibold text-white">Atntiv</span>
       </div>
+
+      <a href="#beta"
+         class="rounded-lg bg-white text-black text-sm font-semibold px-4 py-2 hover:bg-white/80 transition">
+        Join Beta
+      </a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden pt-24 pb-32 text-center">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#0B0D0F] via-[#0E1318] to-[#111826]"></div>
-    <div class="absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#00C2B7]/10 blur-3xl"></div>
-    <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-[#00FFF0]/5 blur-3xl"></div>
+  <!-- HERO -->
+  <section class="pt-24 pb-32">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
-    <div class="mx-auto max-w-6xl px-6">
-      <h1 class="text-5xl md:text-6xl font-bold text-white">
-        Your <span class="bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] bg-clip-text text-transparent">Focus Co-Pilot</span> for Google Meet
-      </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-        Stay focused and productive in your online meetings with real-time distraction detection,
-        gentle nudges, and instant recaps — all processed privately in your browser.
-        <span class="block mt-2 text-sm text-[#00C2B7]">Currently in Beta · Works with Google Meet</span>
+      <!-- Text -->
+      <div>
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight text-white">
+          Stop missing requirement changes<br />
+          during meetings.
+        </h1>
+
+        <p class="mt-6 text-gray-400 text-lg max-w-md">
+          Nootik alerts you the moment the discussion shifts, a decision is made,
+          or ownership changes — so you never walk out misaligned again.
+        </p>
+
+        <div class="mt-8 flex gap-4">
+          <a href="#beta"
+             class="rounded-lg bg-white text-black px-5 py-3 text-sm font-semibold hover:bg-white/90">
+            Join the Beta — Free
+          </a>
+
+          <a href="#demo"
+             class="rounded-lg border border-white/10 px-5 py-3 text-sm text-white hover:bg-white/5">
+            Watch 30s Demo
+          </a>
+        </div>
+
+        <p class="mt-4 text-xs text-gray-500">
+          Used by PMs & Tech Leads · Works with Google Meet · No recordings saved
+        </p>
+      </div>
+
+      <!-- HERO MOCKUP -->
+      <div class="relative flex justify-center">
+        <div class="absolute inset-0 bg-white/5 blur-2xl -z-10"></div>
+
+        <img src="brand/hero0.png"
+             class="w-full max-w-xl rounded-2xl border border-white/10 shadow-2xl" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VALUE PROP -->
+  <section class="border-t border-white/5 py-24 bg-[#0B0D0F]">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+
+      <h2 class="text-3xl md:text-4xl font-semibold text-white">
+        Your biggest project mistakes start as tiny moments you miss.
+      </h2>
+
+      <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+        You fall behind the instant someone silently changes a requirement,
+        adjusts an assumption, or shifts ownership.  
+        Nootik catches these moments for you in real time — before they turn into
+        rework, delays, or surprise scope.
       </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href="#beta" class="rounded-xl bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-6 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
-          Join the Beta
-        </a>
-        <a href="#how" class="rounded-xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-          Learn More
-        </a>
+
+    </div>
+  </section>
+
+  <!-- FEATURES (3 CORE) -->
+  <section id="features" class="py-24 border-t border-white/5 bg-[#0A0C0D]">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Feature 1 -->
+      <div class="p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
+        <h3 class="text-xl font-semibold text-white">Real-time Drift Detection</h3>
+        <p class="text-sm text-gray-400 mt-2">
+          Catch misalignment the second it happens.  
+          Nootik detects requirement changes, decisions, and owner shifts instantly —
+          no more “Wait… when did that change?” moments.
+        </p>
       </div>
-      <div class="mt-14 relative flex justify-center">
-        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#00C2B7]/30 to-[#0FFFC4]/30 blur-2xl"></div>
-        <img src="brand/assistant_hero.png" alt="Preview of Nootik Chrome Extension"
-             class="relative z-10 w-full max-w-4xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(0,194,183,0.25)]" />
+
+      <!-- Feature 2 -->
+      <div class="p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
+        <h3 class="text-xl font-semibold text-white">Structured Transcript</h3>
+        <p class="text-sm text-gray-400 mt-2">
+          Every topic, decision, owner, question, and risk is labeled automatically.
+          Your meeting becomes a clean, searchable map of what actually happened.
+        </p>
       </div>
-      <p class="mt-4 text-xs text-gray-500">
-        Nootik is under active development — join now to help shape the beta experience.
+
+      <!-- Feature 3 -->
+      <div class="p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
+        <h3 class="text-xl font-semibold text-white">What You Missed™</h3>
+        <p class="text-sm text-gray-400 mt-2">
+          Step away for 10 seconds? Nootik shows exactly what changed —  
+          who said it, why it matters, and how to get back in sync immediately.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section id="demo" class="py-24 border-t border-white/5 bg-[#0B0D0F] text-center">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <h2 class="text-3xl md:text-4xl font-semibold text-white">
+        See Nootik catch misalignment in real time.
+      </h2>
+
+      <p class="mt-4 text-gray-400">
+        A 30-second walkthrough showing how Nootik prevents costly misunderstandings.
+      </p>
+
+      <div class="mt-14 rounded-xl overflow-hidden border border-white/10 bg-black">
+        <iframe src="YOUR_LOOM_URL"
+                class="w-full h-72 md:h-96"
+                frameborder="0"
+                allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BETA -->
+  <section id="beta" class="py-24 border-t border-white/5 bg-[#0A0C0D] text-center">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <h2 class="text-3xl md:text-4xl font-semibold text-white">
+        Join the early access beta.
+      </h2>
+
+      <p class="mt-3 text-gray-400">
+        Built for PMs, Tech Leads, and engineering teams who can’t afford misalignment.
+      </p>
+
+      <!-- STEP 1 — EMAIL ONLY -->
+      <form id="beta-form" class="mt-8 flex justify-center gap-3">
+        <input
+          type="email"
+          placeholder="Your email"
+          class="w-full max-w-md rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-sm text-white"
+          required
+        />
+        <button
+          class="rounded-lg bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-white/90"
+        >
+          Continue
+        </button>
+      </form>
+
+      <!-- STEP 2 — HIGH SIGNAL FIELDS -->
+      <div
+        id="beta-step2"
+        class="hidden mt-10 max-w-md mx-auto text-left space-y-6 text-gray-300 opacity-0 transition-opacity duration-500"
+      >
+        <p class="text-center text-gray-300 font-medium">
+          Help us understand your workflow 👇
+        </p>
+
+        <!-- ROLE -->
+        <div>
+          <label class="text-sm">Your role</label>
+          <select
+            id="role-input"
+            class="mt-2 w-full rounded-lg bg-[#1A1C1F] border border-white/10 px-4 py-2 text-white"
+          >
+            <option value="">Select your role</option>
+            <option>Product Manager</option>
+            <option>Tech Lead</option>
+            <option>Software Engineer</option>
+            <option>Engineering Manager</option>
+            <option>Founder / CTO</option>
+            <option>Designer</option>
+            <option>Other</option>
+          </select>
+
+          <input
+            id="role-other"
+            type="text"
+            placeholder="Please specify"
+            class="hidden w-full mt-3 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white placeholder-gray-500"
+          />
+        </div>
+
+        <!-- MEETING PAIN POINT -->
+        <div>
+          <label class="text-sm">What causes misalignment most often?</label>
+          <select
+            id="pain-input"
+            class="mt-2 w-full rounded-lg bg-[#1A1C1F] border border-white/10 px-4 py-2 text-white"
+          >
+            <option value="">Select one</option>
+            <option>Requirement changes</option>
+            <option>Decision changes</option>
+            <option>Ownership / responsibility shifts</option>
+            <option>Scope drift</option>
+            <option>Missed context</option>
+            <option>All of the above</option>
+          </select>
+        </div>
+
+        <!-- TEAM SIZE -->
+        <div>
+          <label class="text-sm">Team size</label>
+          <select
+            id="team-size-input"
+            class="mt-2 w-full rounded-lg bg-[#1A1C1F] border border-white/10 px-4 py-2 text-white"
+          >
+            <option value="">Select one</option>
+            <option>Just me</option>
+            <option>1–5</option>
+            <option>6–10</option>
+            <option>10+</option>
+          </select>
+        </div>
+
+        <!-- OPTIONAL NAME -->
+        <input
+          id="name-input"
+          type="text"
+          placeholder="Your name (optional)"
+          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-gray-500"
+        />
+
+        <button
+          id="beta-finish"
+          type="button"
+          class="w-full rounded-lg bg-white text-black px-5 py-3 text-sm font-semibold hover:bg-white/90"
+        >
+          Join Beta
+        </button>
+      </div>
+
+      <!-- STEP 3 — THANK YOU -->
+      <div
+        id="beta-thanks"
+        class="hidden mt-10 max-w-md mx-auto text-center opacity-0 transition-opacity duration-500"
+      >
+        <p class="text-[#00C2B7] font-medium text-lg">✅ You're in.</p>
+        <p class="mt-2 text-gray-400 text-sm">
+          We'll email you early access details soon.
+        </p>
+      </div>
+
+      <p class="mt-3 text-xs text-gray-500">
+        No spam — only relevant updates.
       </p>
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features" class="border-t border-white/10 bg-[#0D1013] py-24">
-    <div class="mx-auto max-w-6xl px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-semibold text-white">Built for Modern Attention</h2>
-      <p class="mt-3 text-gray-400">Smart. Empathetic. Local. Nootik blends AI with human-centered design.</p>
-      <div class="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm hover:bg-white/10 transition">
-          <img src="brand/detect.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
-          <h3 class="text-lg font-semibold text-white">Real-Time Detection</h3>
-          <p class="mt-2 text-sm text-gray-400">Understands attention patterns and detects when you drift away.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm hover:bg-white/10 transition">
-          <img src="brand/nudge.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
-          <h3 class="text-lg font-semibold text-white">Gentle Nudges</h3>
-          <p class="mt-2 text-sm text-gray-400">Helps you stay calm and aware without interruptions or stress.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm hover:bg-white/10 transition">
-          <img src="brand/recap.svg" alt="" class="mx-auto mb-4 h-10 w-10 opacity-80" />
-          <h3 class="text-lg font-semibold text-white">Instant Recaps</h3>
-          <p class="mt-2 text-sm text-gray-400">Summarizes key moments so you never miss what matters.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 bg-black/40 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
 
-  <!-- How It Works -->
-  <section id="how" class="border-t border-white/10 bg-[#0B0D0F] py-24">
-    <div class="mx-auto max-w-6xl px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-semibold text-white">How it Works</h2>
-      <p class="mt-3 text-gray-400">Simple setup. Real results.</p>
-      <div class="mt-14 grid grid-cols-1 gap-10 text-left md:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-          <span class="text-[#00C2B7] text-sm font-semibold">01</span>
-          <h3 class="mt-2 text-lg font-semibold text-white">Install the Extension</h3>
-          <p class="mt-2 text-sm text-gray-400">Add Nootik to Chrome and connect it with your meeting platforms.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-          <span class="text-[#00C2B7] text-sm font-semibold">02</span>
-          <h3 class="mt-2 text-lg font-semibold text-white">Stay Focused</h3>
-          <p class="mt-2 text-sm text-gray-400">AI observes your attention and gives subtle cues when needed.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-          <span class="text-[#00C2B7] text-sm font-semibold">03</span>
-          <h3 class="mt-2 text-lg font-semibold text-white">Get Recaps Instantly</h3>
-          <p class="mt-2 text-sm text-gray-400">Receive concise summaries of key discussion points automatically.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Privacy -->
-  <section id="privacy" class="border-t border-white/10 bg-[#0E1114] py-24">
-    <div class="mx-auto max-w-4xl px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-semibold text-white">Privacy Built-In</h2>
-      <p class="mt-3 text-gray-400">We never record or store without consent. Nootik is designed with transparency and control in mind.</p>
-      <ul class="mt-10 grid grid-cols-1 gap-4 text-left text-sm text-gray-400 md:grid-cols-2">
-        <li>• Local processing first, cloud only when necessary.</li>
-        <li>• You control what’s stored and when it’s deleted.</li>
-        <li>• No hidden tracking, ads, or third-party data sharing.</li>
-        <li>• Clear settings for pause, snooze, and delete.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Beta Section -->
-<section id="beta" class="border-t border-white/10 bg-[#0B0D0F] py-24 text-center">
-  <div class="mx-auto max-w-5xl px-6">
-    <h2 class="text-3xl md:text-4xl font-semibold text-white">Join the Beta</h2>
-    <p class="mt-3 text-gray-400">Be part of the next generation of focus technology.</p>
-
-    <!-- Step 1: Email -->
-    <form id="beta-form" class="mt-8 flex flex-col items-center gap-3 md:flex-row md:justify-center">
-      <input type="email" placeholder="Your email address" required
-        class="w-full max-w-md rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none focus:border-[#00C2B7]" />
-      <button type="submit"
-        class="rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
-        Join Beta
-      </button>
-    </form>
-
-    <!-- Step 2A: Problem Validation -->
-    <div id="form-2a" class="hidden mt-10 max-w-md mx-auto text-left space-y-6 text-gray-300 opacity-0 transition-opacity duration-500">
-      <p class="text-center text-gray-300 font-medium">Help us personalize your beta experience 👇</p>
-
-      <div>
-        <label>1. How do you usually stay focused in meetings?</label>
-        <select id="q1"
-          class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
-          <option value="">Select one</option>
-          <option>Take notes</option>
-          <option>Turn off notifications</option>
-          <option>Use focus tools or timers</option>
-          <option>Nothing special</option>
-          <option>Other</option>
-        </select>
-      </div>
-
-      <div>
-        <label>2. Do you often lose track or miss details during calls?</label>
-        <select id="q2"
-          class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
-          <option value="">Select one</option>
-          <option>Often</option>
-          <option>Sometimes</option>
-          <option>Rarely</option>
-          <option>Never</option>
-        </select>
-      </div>
-
-      <div>
-        <label>3. What have you tried to improve your focus?</label>
-        <select id="q3"
-          class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
-          <option value="">Select one</option>
-          <option>Manual note-taking</option>
-          <option>Timers or Pomodoro apps</option>
-          <option>Recording or transcribing tools</option>
-          <option>Mindfulness or breathing techniques</option>
-          <option>Nothing yet</option>
-        </select>
-      </div>
-
-      <button id="next-to-2b" type="button"
-        class="w-full rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
-        Next
-      </button>
-    </div>
-
-    <!-- Step 2B: Solution Interest + Profile -->
-    <div id="form-2b" class="hidden mt-10 max-w-md mx-auto text-left space-y-6 text-gray-300 opacity-0 transition-opacity duration-500">
-      <p class="text-center text-gray-300 font-medium">Almost done ✨ Tell us what you think</p>
-
-      <div>
-        <label>4. Would you use an AI Chrome extension that detects distraction and helps you refocus — without recording your meetings?</label>
-        <select id="q4"
-          class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
-          <option value="">Select one</option>
-          <option>Yes, definitely</option>
-          <option>Maybe, I’d like to learn more</option>
-          <option>No, not interested</option>
-        </select>
-      </div>
-
-      <div>
-        <input id="name-input" type="text" placeholder="Your name (Optional)"
-          class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-gray-500 focus:border-[#00C2B7]" />
-      </div>
-
-      <label for="role-input" class="text-sm text-gray-400">Your role or profession</label>
-      <select id="role-input"
-        class="mt-2 w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-3 text-sm text-white focus:border-[#00C2B7]">
-        <option value="">Select an option</option>
-        <option value="Software Engineer">Software Engineer</option>
-        <option value="Product Manager">Product Manager</option>
-        <option value="UX/UI Designer">UX/UI Designer</option>
-        <option value="Founder / CEO">Founder / CEO</option>
-        <option value="Marketing / Sales">Marketing / Sales</option>
-        <option value="Teacher / Instructor">Teacher / Instructor</option>
-        <option value="Student">Student</option>
-        <option value="Freelancer / Independent">Freelancer / Independent</option>
-        <option value="Other">Other</option>
-      </select>
-
-    <input id="role-other" type="text" placeholder="Please specify your profession"
-      class="hidden w-full mt-3 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#00C2B7]" />
-
-      <div>
-        <select id="freq-input"
-          class="w-full rounded-lg border border-white/10 bg-[#1A1C1F] px-4 py-2 text-white focus:border-[#00C2B7]">
-          <option value="">How often do you join online meetings?</option>
-          <option>Every day</option>
-          <option>Several times a week</option>
-          <option>Occasionally</option>
-        </select>
-      </div>
-
-      <button id="send-feedback" type="button"
-        class="w-full rounded-lg bg-gradient-to-r from-[#00C2B7] to-[#0FFFC4] px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:opacity-90">
-        Join Beta
-      </button>
-    </div>
-
-    <!-- Step 3: Thank You -->
-    <div id="thank-you" class="hidden mt-10 max-w-md mx-auto text-center opacity-0 transition-opacity duration-500">
-      <p class="text-[#00C2B7] font-medium text-lg">✅ Thanks for joining the Nootik Beta!</p>
-      <p class="mt-2 text-gray-400 text-sm">You'll receive early access updates soon.</p>
-      <p class="mt-4 text-xs text-gray-600">Stay focused ✨</p>
-    </div>
-
-    <p class="mt-3 text-xs text-gray-500">We’ll only contact you with important updates — no spam.</p>
-  </div>
-</section>
-
-
-  <!-- Footer -->
-  <footer class="border-t border-white/10 bg-black/60 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
       <div class="flex items-center gap-2">
-        <img src="brand/icon.png" alt="Nootik logo" class="h-6 w-6" />
-        <span class="text-sm font-semibold text-white">Nootik Beta</span>
+        <img src="brand/atntiv-icon.png" class="h-5 w-5" />
+        <span class="text-xs font-semibold">Atntiv</span>
       </div>
-      <p class="text-xs text-gray-500">© 2025 Nootik — Built with empathy and AI.</p>
-      <div class="flex items-center gap-4 text-sm">
-        <a href="privacy/" class="text-gray-400 hover:text-white transition">Privacy</a>
-        <a href="https://www.linkedin.com/company/nootik/" target="_blank" class="text-gray-400 hover:text-white transition">Contact</a>
-        <a href="docs/" class="text-gray-400 hover:text-white transition">Docs</a>
-        <a href="feedback/" class="text-gray-400 hover:text-white transition">Feedback</a>
+
+      <p class="text-xs text-gray-500">© 2025 Atntiv — Built for high-context teams.</p>
+
+      <div class="flex gap-4 text-xs">
+        <a href="privacy/" class="text-gray-400 hover:text-white">Privacy</a>
+        <a href="https://www.linkedin.com/company/nootik/" class="text-gray-400 hover:text-white">Contact</a>
       </div>
+
     </div>
   </footer>
+<script>
+  const API_URL = "https://nootik-api.onrender.com"; // unchanged
 
-  <!-- Script -->
-  <script>
-      const roleSelect = document.getElementById('role-input');
-      const roleOther = document.getElementById('role-other');
+  document.addEventListener('DOMContentLoaded', () => {
+    const betaForm = document.getElementById('beta-form');
+    const betaStep2 = document.getElementById('beta-step2');
+    const betaThanks = document.getElementById('beta-thanks');
 
-      roleSelect.addEventListener('change', () => {
-        if (roleSelect.value === 'Other') {
-          roleOther.classList.remove('hidden');
-        } else {
-          roleOther.classList.add('hidden');
-          roleOther.value = '';
-        }
-      });
+    const roleSelect = document.getElementById('role-input');
+    const roleOther = document.getElementById('role-other');
 
+    let userEmail = '';
 
-     document.getElementById('lang-switch').addEventListener('change', (e) => {
-      const lang = e.target.value;
-      if (lang === 'es') {
-        window.location.href = 'https://nootik-ai.github.io/es/';  
+    // Show "other"
+    roleSelect.addEventListener('change', () => {
+      if (roleSelect.value === 'Other') {
+        roleOther.classList.remove('hidden');
       } else {
-        window.location.href = 'https://nootik-ai.github.io/';
+        roleOther.classList.add('hidden');
+        roleOther.value = '';
       }
     });
-    const API_URL = "https://nootik-api.onrender.com";
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const betaForm = document.getElementById('beta-form');
-      const f2a = document.getElementById('form-2a');
-      const f2b = document.getElementById('form-2b');
-      const thankYou = document.getElementById('thank-you');
-      let userEmail = '';
-
-      function setLoading(btn, isLoading, text) {
-        if (isLoading) {
-          btn.disabled = true;
-          btn.dataset.originalText = btn.innerHTML;
-          btn.innerHTML = '<div class="flex items-center justify-center gap-2">' +
-            '<svg class="animate-spin h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">' +
-            '<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>' +
-            '<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>' +
-            '</svg><span>' + text + '</span></div>';
-        } else {
-          btn.disabled = false;
-          btn.innerHTML = btn.dataset.originalText;
-        }
+    function setLoading(btn, isLoading, text) {
+      if (isLoading) {
+        btn.disabled = true;
+        btn.dataset.originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <div class="flex items-center justify-center gap-2">
+            <svg class="animate-spin h-4 w-4 text-black" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" 
+                stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+            <span>${text}</span>
+          </div>`;
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = btn.dataset.originalText;
       }
+    }
 
-      // Step 1: Save email
-      betaForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const emailInput = betaForm.querySelector('input[type="email"]');
-        const submitBtn = betaForm.querySelector('button');
-        userEmail = emailInput.value.trim().toLowerCase();
-        if (!userEmail) return alert('Please enter your email.');
+    // === STEP 1: EMAIL ===
+    betaForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailInput = betaForm.querySelector('input[type="email"]');
+      const btn = betaForm.querySelector('button');
 
-        try {
-          setLoading(submitBtn, true, 'Joining...');
-          // Capture and store UTM parameters
-          const params = new URLSearchParams(window.location.search);
-          const utm_source = params.get("utm_source");
-          const utm_medium = params.get("utm_medium");
-          const utm_campaign = params.get("utm_campaign");
+      userEmail = emailInput.value.trim().toLowerCase();
+      if (!userEmail) return alert("Please enter your email.");
 
-          if (utm_source) localStorage.setItem("utm_source", utm_source);
-          if (utm_medium) localStorage.setItem("utm_medium", utm_medium);
-          if (utm_campaign) localStorage.setItem("utm_campaign", utm_campaign);
+      try {
+        setLoading(btn, true, "Saving...");
 
-          const geoData = await getClientGeo();
+        const params = new URLSearchParams(window.location.search);
 
-          const leadData = {
-            email: userEmail,
-            utm_source: localStorage.getItem("utm_source") || "direct",
-            utm_medium: localStorage.getItem("utm_medium") || "unknown",
-            utm_campaign: localStorage.getItem("utm_campaign") || "none",
-            language: navigator.language || "unknown",
-            ...geoData,
-          };
+        const geoData = await getClientGeo();
 
-          const res = await fetch(API_URL + '/api/lead', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(leadData)
-          });
-          if (!res.ok) throw new Error();
-          betaForm.classList.add('hidden');
-          f2a.classList.remove('hidden');
-          setTimeout(() => f2a.classList.add('opacity-100'), 50);
-        } catch (err) {
-          console.error(err);
-          alert('Something went wrong. Please try again later.');
-        } finally {
-          setLoading(submitBtn, false, '');
-        }
-      });
-
-      // Step 2A → Step 2B
-      document.getElementById('next-to-2b').addEventListener('click', () => {
-        f2a.classList.add('hidden');
-        f2b.classList.remove('hidden');
-        setTimeout(() => f2b.classList.add('opacity-100'), 50);
-      });
-
-      // Step 2B: Send feedback
-      document.getElementById('send-feedback').addEventListener('click', async () => {
-        if (!userEmail) return alert('Please start again.');
-        const data = {
-          q1: document.getElementById('q1').value.trim(),
-          q2: document.getElementById('q2').value.trim(),
-          q3: document.getElementById('q3').value.trim(),
-          q4: document.getElementById('q4').value.trim(),
-          name: document.getElementById('name-input').value.trim() || null,
-          role: document.getElementById('role-input').value.trim(),
-          frequency: document.getElementById('freq-input').value.trim()
+        const leadData = {
+          email: userEmail,
+          utm_source: params.get("utm_source") || "direct",
+          utm_medium: params.get("utm_medium") || "unknown",
+          utm_campaign: params.get("utm_campaign") || "none",
+          language: navigator.language || "unknown",
+          ...geoData,
         };
 
-        const btn = document.getElementById('send-feedback');
-        try {
-          setLoading(btn, true, 'Sending...');
-          const res = await fetch(API_URL + '/api/lead/' + encodeURIComponent(userEmail), {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          });
-          if (!res.ok) throw new Error();
-          f2b.classList.add('hidden');
-          thankYou.classList.remove('hidden');
-          setTimeout(() => thankYou.classList.add('opacity-100'), 50);
-        } catch (err) {
-          console.error(err);
-          alert('Could not send feedback. Please try again later.');
-        } finally {
-          setLoading(btn, false, '');
-        }
-      });
+        const res = await fetch(API_URL + "/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(leadData),
+        });
+
+        if (!res.ok) throw new Error();
+
+        betaForm.classList.add("hidden");
+        betaStep2.classList.remove("hidden");
+        setTimeout(() => betaStep2.classList.add("opacity-100"), 40);
+      } catch (err) {
+        console.error(err);
+        alert("Something went wrong. Try again later.");
+      } finally {
+        setLoading(btn, false, "");
+      }
     });
-  </script>
+
+    // === STEP 2: FINISH ===
+    document.getElementById('beta-finish').addEventListener('click', async () => {
+      if (!userEmail) return alert("Please restart.");
+
+      const btn = document.getElementById('beta-finish');
+
+      const data = {
+        role: roleSelect.value,
+        role_other: roleOther.value || null,
+        pain_point: document.getElementById('pain-input').value,
+        team_size: document.getElementById('team-size-input').value,
+        name: document.getElementById('name-input').value || null,
+      };
+
+      try {
+        setLoading(btn, true, "Sending...");
+
+        const res = await fetch(API_URL + "/api/lead/" + encodeURIComponent(userEmail), {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (!res.ok) throw new Error();
+
+        betaStep2.classList.add("hidden");
+        betaThanks.classList.remove("hidden");
+        setTimeout(() => betaThanks.classList.add("opacity-100"), 40);
+      } catch (err) {
+        console.error(err);
+        alert("Error sending details. Try again.");
+      } finally {
+        setLoading(btn, false, "");
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
